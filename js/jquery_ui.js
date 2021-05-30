@@ -25,5 +25,6 @@ $( function() {
   });
 } );
 
-$('input[name="amount"],input[name="amount_programm"]').mask('9?999999');
+$('input[name="amount"],input[name="amount_program"]').mask('9?999999');
+
 

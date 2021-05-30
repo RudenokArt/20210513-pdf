@@ -123,7 +123,7 @@ input[type="radio"]{
   flex-wrap: wrap;
 }
 .quiz_step{
-  min-height: 500px;
+  min-height: 400px;
 }
 .quiz_container div{
   margin:auto;

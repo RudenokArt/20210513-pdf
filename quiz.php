@@ -115,7 +115,7 @@
     <div class="quiz_step-item">
 
       <div class="quiz_step-item_title">
-        Общая сумма за Проживание, Питание, Программу:
+        Общая сумма за Проживание, Питание:
       </div>
       <div class="quiz_step-item_content">
         Сумму укажите из Расчета, который вам прислали ранее:

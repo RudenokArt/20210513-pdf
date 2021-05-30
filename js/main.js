@@ -62,9 +62,9 @@ function programArr () {
   var radio=$('input[name="selectedDates"]');
   for (var i = 0; i < arr.length; i++) {
     if (radio[i].checked==false){
-      $('input[name="amount_programm"]').prop('disabled',true);
+      $('input[name="amount_program"]').prop('disabled',true);
     } else {
-      $('input[name="amount_programm"]').prop('disabled',false);
+      $('input[name="amount_program"]').prop('disabled',false);
     }
   }
 }

@@ -52,8 +52,13 @@ use Dompdf\Dompdf;
 
 if (isset($_POST['contract']) and $_POST['contract']=='true') {
   $data=$_POST;
+  var_dump(contractFormGet());
   include_once 'amount_in_words.php';
-  include_once 'contract.php';
+  if (!contractFormGet()) {
+    include_once 'contract.php';
+  }else{
+    include_once 'contract_2.php';
+  }
   include_once __DIR__ . '/dompdf/autoload.inc.php';
   $dompdf = new Dompdf();
   $dompdf->loadHtml($html, 'UTF-8');
@@ -61,7 +66,11 @@ if (isset($_POST['contract']) and $_POST['contract']=='true') {
   $dompdf->render();
   $pdf = $dompdf->output(); 
   file_put_contents(__DIR__ . '/contract.pdf', $pdf); 
-  echo $html;
+  //echo $html;
+  echo '<br><br><a href="contract.pdf" download="download">Скачать договор</a>';
+  echo '<br><br><i class="fa fa-cloud-download" aria-hidden="true"></i>
+  <a href="index.php">На главную</a>';
+
 }else { include_once 'layout.php'; }
 
 
@@ -104,6 +113,23 @@ function getPackage(){
   global $data;
   $package=explode('||', $data['selectedDates']);
   return $package;
+}
+
+function contractFormGet(){
+  global $data;
+  global $selectedDatesArr;
+  global $program_arr;
+  $arr=explode('||', $data['selectedDates']);
+  $flag=false;
+  foreach ($program_arr as $key => $value) {
+    if($selectedDatesArr[$value]['date_from']==$arr[0] and
+      $selectedDatesArr[$value]['date_to']==$arr[1] and
+      $selectedDatesArr[$value]['place']==$arr[2])
+    {
+      $flag=true;
+    }
+  }
+  return $flag;
 }
 
 

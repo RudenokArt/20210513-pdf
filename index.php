@@ -6,22 +6,22 @@
 
 $selectedDatesArr=[
   ['date_from'=>'15/06/2021','date_to'=>'25/06/2021',
-  'place'=>'Крым Николаевка','program'=>true],
+  'place'=>'Крым Николаевка','room'=>true],
   ['date_from'=>'27/06/2021','date_to'=>'07/07/2021',
-  'place'=>'Крым Зеленогорье','program'=>false],
+  'place'=>'Крым Зеленогорье','room'=>false],
   ['date_from'=>'09/07/2021','date_to'=>'19/07/21','place'=>
-  'Крым Зеленогорье','programm'=>1],
+  'Крым Зеленогорье','room'=>1],
   ['date_from'=>'21/07/2021','date_to'=>'31/07/2021',
-  'place'=>'Крым Зеленогорье','program'=>false],
+  'place'=>'Крым Зеленогорье','room'=>false],
   ['date_from'=>'03/08/2021','date_to'=>'13/08/2021',
-  'place'=>'Дагестан, Инчхе','program'=>false],
+  'place'=>'Дагестан, Инчхе','room'=>false],
   ['date_from'=>'14/08/2021','date_to'=>'24/08/2021',
-  'place'=>'Дагестан, Инчхе','program'=>false],
+  'place'=>'Дагестан, Инчхе','room'=>false],
   ['date_from'=>'16/08/2021','date_to'=>'26/08/2021',
-  'place'=>'Краснодарский край, За Родину','program'=>false],
+  'place'=>'Краснодарский край, За Родину','room'=>false],
 ];
 
-$program_arr=[0,];
+$room_arr=[0,];
 
 $selectedRoomCategoryArr=[
   'Мансарда (5 этаж)',
@@ -66,7 +66,7 @@ if (isset($_POST['contract']) and $_POST['contract']=='true') {
   $dompdf->render();
   $pdf = $dompdf->output(); 
   file_put_contents(__DIR__ . '/contract.pdf', $pdf); 
-  //echo $html;
+  echo $html;
   echo '<br><br><a href="contract.pdf" download="download">Скачать договор</a>';
   echo '<br><br><i class="fa fa-cloud-download" aria-hidden="true"></i>
   <a href="index.php">На главную</a>';
@@ -76,9 +76,9 @@ if (isset($_POST['contract']) and $_POST['contract']=='true') {
 
 // ========== FUNCTIONS ==========
 
-function programArr(){
-  global $program_arr;
-  $str=json_encode($program_arr, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+function roomArr(){
+  global $room_arr;
+  $str=json_encode($room_arr, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
   return $str;
 }
 
@@ -118,10 +118,10 @@ function getPackage(){
 function contractFormGet(){
   global $data;
   global $selectedDatesArr;
-  global $program_arr;
+  global $room_arr;
   $arr=explode('||', $data['selectedDates']);
   $flag=false;
-  foreach ($program_arr as $key => $value) {
+  foreach ($room_arr as $key => $value) {
     if($selectedDatesArr[$value]['date_from']==$arr[0] and
       $selectedDatesArr[$value]['date_to']==$arr[1] and
       $selectedDatesArr[$value]['place']==$arr[2])

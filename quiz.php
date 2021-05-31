@@ -1,11 +1,11 @@
 <div class="quiz_title-1">
-  <p>Регистрация и Подписание Оферты (Договора)</p>
-  <p>ЭТАП 1/2</p>
+  <p>Регистрация и подписание договора</p>
+  <!-- <p>ЭТАП 1/2</p> -->
 </div>
-<div class="quiz_title-2">
+<!-- <div class="quiz_title-2">
   <p>Дагестан</p>
   <p>Инчхе</p>
-</div>
+</div> -->
 <div class="quiz_title-3">
   <div class="quiz_container">
     <div>
@@ -25,7 +25,7 @@
         <div class="quiz_step-item_title">
           Выбранные даты:
         </div>
-        <input type="hidden" name="programArr" value="<?php echo programArr();?>" >
+        <input type="hidden" name="roomArr" value="<?php echo roomArr();?>" >
         <?php foreach ($selectedDatesArr as $key => $value) {?>
           <div class="quiz_step-item_content">
             <label class="checkbox_label">
@@ -34,7 +34,7 @@
                <input name="selectedDates" 
                class="selectedDates" type="radio"
                value="<?php echo $value['date_from'].'||'.$value['date_to'].
-               '||'.$value['place'].'||'.$value['program'] ?>"  > 
+               '||'.$value['place'].'||'.$value['room'] ?>"  > 
              </div>
              <div>
                <?php echo $value['date_from'].'-'.$value['date_to'].' '.$value['place'] ?>
@@ -104,7 +104,7 @@
   <div class="quiz_step">
     <div class="quiz_step-item">
       <div class="quiz_step-item_title">
-        Номер вашего паспорта:
+        Серия и номер вашего паспорта:
       </div>
       <div class="quiz_step-item_content">
         <div class="input_wrapper">
@@ -115,7 +115,7 @@
     <div class="quiz_step-item">
 
       <div class="quiz_step-item_title">
-        Общая сумма за Проживание, Питание:
+        Стоимость программы:
       </div>
       <div class="quiz_step-item_content">
         Сумму укажите из Расчета, который вам прислали ранее:
@@ -127,14 +127,14 @@
       </div>
 
       <div class="quiz_step-item_title">
-        Общая сумма за Программу:
+        Стоимость проживания:
       </div>
       <div class="quiz_step-item_content">
         Сумму укажите из Расчета, который вам прислали ранее:
       </div>
       <div class="quiz_step-item_content">
         <div class="input_wrapper">
-          <input type="text" name="amount_program">
+          <input type="text" name="amount_room">
         </div>
       </div>
 
@@ -149,31 +149,8 @@
     </div>
   </div>
 
-<!-- <div class="quiz_step">
-  <div class="quiz_step-item">
-    <div class="quiz_step-item_title">
-      Количество взрослых:
-    </div>
-    <div class="quiz_step-item_content">
-      <div class="input_wrapper" style="width: 100px;">
-        <input type="text" name="adult_quantity">
-      </div>
-    </div>
-  </div>
-  <div class="quiz_step-item">
-    <div class="quiz_step-item_title">
-      Количество детей:
-    </div>
-    <div class="quiz_step-item_content">
-      <div class="input_wrapper" style="width: 100px;">
-        <input type="text" name="children_quantity">
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <div class="quiz_step">
-  <?php for ($i=1; $i < 6; $i++) { ?>
+  <?php for ($i=1; $i <= 3; $i++) { ?>
     <div class="quiz_step-item">
       <div class="quiz_step-item_title">
         ФИО <?php echo $i ?>-го отдыхающего:
@@ -184,11 +161,6 @@
         </div>
       </div>
     </div>
-  <?php  }  ?>
-</div>
-
-<div class="quiz_step">
-  <?php for ($i=1; $i < 6; $i++) { ?>
     <div class="quiz_step-item">
       <div class="quiz_step-item_title">
         Дата рождения <?php echo $i ?>-го отдыхающего:
@@ -203,26 +175,51 @@
 </div>
 
 <div class="quiz_step">
+  <?php for ($i=4; $i <= 6; $i++) { ?>
+    <div class="quiz_step-item">
+      <div class="quiz_step-item_title">
+        ФИО <?php echo $i ?>-го отдыхающего:
+      </div>
+      <div class="quiz_step-item_conten">
+        <div class="input_wrapper">
+          <input type="text" name="member_fio_<?php echo $i; ?> ">
+        </div>
+      </div>
+    </div>
+    <div class="quiz_step-item">
+      <div class="quiz_step-item_title">
+        Дата рождения <?php echo $i ?>-го отдыхающего:
+      </div>
+      <div class="quiz_step-item_conten">
+        <div class="input_wrapper">
+          <input type="text" name="member_birstday_<?php echo $i ?>" class="date">
+        </div>
+      </div>
+    </div>
+  <?php  }  ?>
+</div>
+
+<!-- <div class="quiz_step">
   <div class="quiz_step-item">
     <div class="quiz_step-item_title">
       Мне удобнее получать сообщения от вас через:
     </div>
-    <?php foreach ($selectedMessageOptionArr as $key => $value) {?>
+    <?php //foreach ($selectedMessageOptionArr as $key => $value) {?>
       <div class="quiz_step-item_content">
         <label class="checkbox_label">
           <div class="checkbox_wrapper">
            <i class="fa fa-check" aria-hidden="true"></i>
            <input name="selectedMessanger"
-           value="<?php echo $value ?>" type="radio" > 
+           value="<?php// echo $value ?>" type="radio" > 
          </div>
          <div>
-           <?php echo $value ?>
+           <?php //echo $value ?>
          </div>
        </label>
      </div>
-   <?php   }  ?>
+   <?php //  }  ?>
  </div>
-</div>
+</div> -->
 
 </div>
 </form>

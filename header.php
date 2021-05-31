@@ -19,9 +19,12 @@
     <div class="header_container">
       <div class="header_menu">
         <div class="header_menu-item">
-          <a href="https://семейныйлагерь.рф/">Главная</a>
+          <a href="https://семейныйлагерь.рф/">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          На главную
+        </a>
         </div>
-        <div class="header_menu-item">
+        <!-- <div class="header_menu-item">
           <a href="https://семейныйлагерь.рф/history">О нас</a>
         </div>
         <div class="header_menu-item">
@@ -29,19 +32,24 @@
         </div>
         <div class="header_menu-item">
           <a href="https://семейныйлагерь.рф/comments">Отзывы</a>
-        </div>
+        </div> -->
       </div>
       <div class="logo_wrapper">
-        <img src="img/header_logo.png" alt="Семейный лагерь" class="logo">
+        <a href="https://семейныйлагерь.рф/">
+          <img src="img/header_logo.png" alt="Семейный лагерь" class="logo">
+        </a>
       </div>
       <div class="header_contacts">
-        <div>+ 7 918 451 7137</div>
+        <div><a href="tel:+79184517137">+ 7 918 451 7137</a></div>
         <div>
-          <a href="https://vk.com/lager7">
-            <?php echo iconVk(); ?>
+          <a href="https://vk.com/lager7" class="soc_link">
+            <i class="fa fa-vk" aria-hidden="true"></i>
           </a>
-          <a href="https://www.instagram.com/familyclub7p/">
-            <?php echo iconInstagram(); ?>
+          <a href="https://www.instagram.com/familyclub7p/" class="soc_link">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://tlgg.ru/@Yulia_Pladas" class="soc_link">
+            <i class="fa fa-telegram" aria-hidden="true"></i>
           </a>
         </div>
       </div>

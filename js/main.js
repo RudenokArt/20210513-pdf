@@ -53,18 +53,20 @@ function checkboxChecked () {
       $(collection[i]).siblings('i').fadeOut();
     }
   }
-  programArr();
+  roomArr();
 }
 
-function programArr () {
-  var str=$('input[name="programArr"]').prop('value');
+function roomArr () {
+  var str=$('input[name="roomArr"]').prop('value');
   var arr=JSON.parse(str);
   var radio=$('input[name="selectedDates"]');
   for (var i = 0; i < arr.length; i++) {
     if (radio[i].checked==false){
-      $('input[name="amount_program"]').prop('disabled',true);
+      $('input[name="amount_room"]').prop('disabled',true);
+      $('input[name="amount_room"]').prop('value','0');
     } else {
-      $('input[name="amount_program"]').prop('disabled',false);
+      $('input[name="amount_room"]').prop('disabled',false);
+      $('input[name="amount_room"]').prop('value','');
     }
   }
 }
@@ -149,7 +151,7 @@ function validateForm () {
     }
   }
   if (quiz.step==2) {  
-    if (inputValidate(['passport','amount','amount_program'])) {
+    if (inputValidate(['passport','amount','amount_room'])) {
       flag=true;
     }
   }

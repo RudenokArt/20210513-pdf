@@ -42,17 +42,16 @@ $selectedMessageOptionArr=[
   'Email',
 ];
 
-foreach ($_POST as $key => $value) {
-  echo $key.'=';
-  echo $value.'<br>';
-}
+// foreach ($_POST as $key => $value) {
+//   echo $key.'=';
+//   echo $value.'<br>';
+// }
 
 
 use Dompdf\Dompdf;
 
 if (isset($_POST['contract']) and $_POST['contract']=='true') {
   $data=$_POST;
-  var_dump(contractFormGet());
   include_once 'amount_in_words.php';
   if (!contractFormGet()) {
     include_once 'contract.php';
@@ -66,11 +65,18 @@ if (isset($_POST['contract']) and $_POST['contract']=='true') {
   $dompdf->render();
   $pdf = $dompdf->output(); 
   file_put_contents(__DIR__ . '/contract.pdf', $pdf); 
-  echo $html;
-  echo '<br><br><a href="contract.pdf" download="download">Скачать договор</a>';
-  echo '<br><br><i class="fa fa-cloud-download" aria-hidden="true"></i>
-  <a href="index.php">На главную</a>';
-
+  $dompdf1 = new Dompdf();
+  $dompdf1->loadHtml($html1, 'UTF-8');
+  $dompdf1->setPaper('A4', 'portrait');
+  $dompdf1->render();
+  $pdf1 = $dompdf1->output(); 
+  file_put_contents(__DIR__ . '/supplement.pdf', $pdf1);
+  //echo $html;
+  // echo '<br><br><a href="contract.pdf" download="contract">Скачать договор</a>';
+  // echo '<br><br><a href="supplement.pdf" download="supplement">Скачать приложения</a>';
+  // echo '<br><br><i class="fa fa-cloud-download" aria-hidden="true"></i>
+  // <a href="index.php">На главную</a>';
+  include_once 'php_mail/index.php';
 }else { include_once 'layout.php'; }
 
 

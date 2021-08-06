@@ -11,7 +11,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
   <link rel="stylesheet" href="css/style.css?<?php echo time() ?>">
-  <title>Document</title>
+  <title>Семейный лагерь на море</title>
 </head>
 <body>
 

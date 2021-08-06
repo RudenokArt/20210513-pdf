@@ -151,7 +151,7 @@ function validateForm () {
     }
   }
   if (quiz.step==2) {  
-    if (inputValidate(['passport','amount','amount_room','contract_date'])) {
+    if (inputValidate(['passport','amount',])) {
       flag=true;
     }
   }

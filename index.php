@@ -21,7 +21,7 @@ $selectedDatesArr=[
   'place'=>'Краснодарский край, За Родину','room'=>false],
 ];
 
-$room_arr=[0,];
+$room_arr=[];
 
 $selectedRoomCategoryArr=[
   'Мансарда (5 этаж)',

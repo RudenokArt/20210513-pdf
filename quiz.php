@@ -126,7 +126,7 @@
         </div>
       </div>
 
-      <div class="quiz_step-item_title">
+      <!-- <div class="quiz_step-item_title">
         Стоимость проживания:
       </div>
       <div class="quiz_step-item_content">
@@ -140,12 +140,13 @@
 
       <div class="quiz_step-item_title">
         Дата заключения договора:
-      </div>
-      <div class="quiz_step-item_content">
+      </div> -->
+      <div class="quiz_step-item_content" style="display: none;" value="0">
         <div class="input_wrapper">
           <input type="text" name="contract_date" class="date">
         </div>
       </div>
+
     </div>
   </div>
 

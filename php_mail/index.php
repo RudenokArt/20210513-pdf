@@ -19,7 +19,7 @@ $SenderConfig = array(
 );
 
 // Email получателя/Получателей
-$Receiver = "yuliapladas@yandex.ru";
+$Receiver = "Lager7putei@gmail.com";
 // Тема сообщения
 $Subject = "Договор оказания услуг";
 
@@ -32,8 +32,8 @@ $Text = $data['fio'].' - '.$data['selectedDates'].'<br>
 Договор с приложениями в прикрепленных файлах.' ;
 
 // Вложение в письме - адрес к файлу
-$Attachment = '../contract.pdf';
-$Attachment2='../supplement.pdf';
+$Attachment = 'contract.pdf';
+$Attachment2='supplement.pdf';
 
 /* $mail = new KM_Mailer(сервер, порт, пользователь, пароль, тип); */
 /* Тип может быть: null, tls или ssl */

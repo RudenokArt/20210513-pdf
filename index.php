@@ -20,9 +20,10 @@ $selectedDatesArr=[
   ['date_from'=>'16/08/2021','date_to'=>'26/08/2021',
   'place'=>'Краснодарский край, За Родину','room'=>false],
 
-  ['date_from'=>'02/10/2021','date_to'=>'09/10/2021','place'=>'Триместровые каникулы','room'=>false],
-  ['date_from'=>'23/10/2021','date_to'=>'30/10/2021','place'=>'Четвертные каникулы','room'=>false],
-  ['date_from'=>'31/10/2021','date_to'=>'07/11/2021','place'=>'Ноябрьские праздники','room'=>false],
+  ['date_from'=>'02/10/2021','date_to'=>'09/10/2021','place'=>'Дагестан, Инчхе','room'=>false],
+  ['date_from'=>'23/10/2021','date_to'=>'30/10/2021','place'=>'Дагестан, Инчхе','room'=>false],
+  ['date_from'=>'31/10/2021','date_to'=>'07/11/2021','place'=>'Дагестан, Инчхе','room'=>false],
+  ['date_from'=>'02/01/2022','date_to'=>'09/01/2022','place'=>'Дагестан, Инчхе','room'=>false],
   
 ];
 
@@ -144,6 +145,6 @@ function contractFormGet(){
 }
 
 
-
+echo date('d:m:Y');
 
 ?>

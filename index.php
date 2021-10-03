@@ -1,6 +1,6 @@
 <?php header('Content-type: text/html; charset=utf-8');
 
-
+include_once 'core/functions.php';
 
 // ========== GLOBALS ==========
 
@@ -45,12 +45,6 @@ $selectedMessageOptionArr=[
   'Email',
 ];
 
-// foreach ($_POST as $key => $value) {
-//   echo $key.'=';
-//   echo $value.'<br>';
-// }
-
-
 use Dompdf\Dompdf;
 
 if (isset($_POST['contract']) and $_POST['contract']=='true') {
@@ -74,74 +68,8 @@ if (isset($_POST['contract']) and $_POST['contract']=='true') {
   $dompdf1->render();
   $pdf1 = $dompdf1->output(); 
   file_put_contents(__DIR__ . '/supplement.pdf', $pdf1);
-  //echo $html;
-  // echo '<br><br><a href="contract.pdf" download="contract">Скачать договор</a>';
-  // echo '<br><br><a href="supplement.pdf" download="supplement">Скачать приложения</a>';
-  // echo '<br><br><i class="fa fa-cloud-download" aria-hidden="true"></i>
-  // <a href="index.php">На главную</a>';
   include_once 'php_mail/index.php';
 }else { include_once 'layout.php'; }
 
-
-// ========== FUNCTIONS ==========
-
-function roomArr(){
-  global $room_arr;
-  $str=json_encode($room_arr, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-  return $str;
-}
-
-function getMembers(){
-  global $data;
-  $str='';
-  $nameArr=[];
-  $dateArr=[];
-  $i=1;
-  foreach ($data as $key => $value) {
-    $name=explode('_', $key);
-    if ($name[0]=='member' and $name[1]=='fio') {
-      array_push($nameArr, $value);
-      $i++;
-    }
-  }
-  foreach ($data as $key => $value) {
-    $date=explode('_', $key);
-    if ($date[0]=='member' and $date[1]=='birstday') {
-      array_push($dateArr, $value);
-      $i++;
-    }
-  }
-  for ($i=0; $i < sizeof($nameArr); $i++) { 
-    $str=$str.'<p>1.2.'.($i+1).'. ФИО: '.$nameArr[$i].
-    ' Дата рождения: '.$dateArr[$i].'</p>';
-  }
-  return $str;
-}
-
-function getPackage(){
-  global $data;
-  $package=explode('||', $data['selectedDates']);
-  return $package;
-}
-
-function contractFormGet(){
-  global $data;
-  global $selectedDatesArr;
-  global $room_arr;
-  $arr=explode('||', $data['selectedDates']);
-  $flag=false;
-  foreach ($room_arr as $key => $value) {
-    if($selectedDatesArr[$value]['date_from']==$arr[0] and
-      $selectedDatesArr[$value]['date_to']==$arr[1] and
-      $selectedDatesArr[$value]['place']==$arr[2])
-    {
-      $flag=true;
-    }
-  }
-  return $flag;
-}
-
-
-echo date('d:m:Y');
 
 ?>

@@ -16,15 +16,6 @@ $( function() {
   });
 } );
 
-// $( function() {
-//   $('input[name="contract_date"]').datepicker(
-//     "setDate", "+0d",{
-//     dateFormat: "dd-mm-yy",
-//       defaultDate: +1,
-//       gotoCurrent: true,
-//   });
-// } );
-
 $('input[name="amount"],input[name="amount_room"]').mask('9?999999');
 
 

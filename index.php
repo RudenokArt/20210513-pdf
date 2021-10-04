@@ -24,6 +24,8 @@ $selectedDatesArr=[
   ['date_from'=>'02/01/2022','date_to'=>'09/01/2022','place'=>'Калужская область, Юхнов','room'=>false],  
 ];
 
+$selectedDatesArr=dates_get_list();
+
 $room_arr=[];
 
 $selectedRoomCategoryArr=[

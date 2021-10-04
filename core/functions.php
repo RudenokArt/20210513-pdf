@@ -3,6 +3,19 @@
 
 // ========== FUNCTIONS ==========
 
+function dates_get_list () {
+ $host='localhost';
+ $log='o918458x_db';
+ $pas='o918458x_pas';
+ $db='o918458x_db';
+ $link=mysqli_connect($host,$log,$pas,$db);
+ $sql=mysqli_query($link,'SELECT * FROM `camp_dates` ');
+ $arr=[];
+ while ($row = mysqli_fetch_assoc($sql))    {
+  array_push($arr, $row);  }
+  return $arr;
+}
+
 function roomArr(){
   global $room_arr;
   $str=json_encode($room_arr, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);

@@ -20,12 +20,22 @@
   <script src="https://use.fontawesome.com/e8a42d7e14.js"></script>
   <!-- MASKEDINPUT -->
   <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
+  <!-- BOOTSTAP DATAPICKER -->
+  <script type="text/javascript" 
+  src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" 
+  src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" 
+  src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" 
+  href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <!-- ========= -->
   <link rel="stylesheet" href="../css/admin.css">
   <title>Document</title>
 </head>
 <body>
-  <div class="top_menu wrapper">
+  
+  <div class="top_menu wrapper"> 
     <div class="container">
       <ul class="nav nav-tabs bg-light">
         <li class="nav-item">

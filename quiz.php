@@ -34,10 +34,10 @@
                <input name="selectedDates" 
                class="selectedDates" type="radio"
                value="<?php echo $value['date_from'].'||'.$value['date_to'].
-               '||'.$value['place'].'||'.$value['room'] ?>"  > 
+               '||'.$value['camp'].'||'.$value['camp'] ?>"  > 
              </div>
              <div>
-               <?php echo $value['date_from'].'-'.$value['date_to'].' '.$value['place'] ?>
+               <?php echo $value['date_from'].'-'.$value['date_to'].' '.$value['camp'] ?>
              </div>
            </label>
          </div>

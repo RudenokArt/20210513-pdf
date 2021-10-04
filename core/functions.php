@@ -16,6 +16,17 @@ function dates_get_list () {
   return $arr;
 }
 
+function dates_check_season ($season) { // проверить сезон на наличие туров
+    $flag = false;
+    $arr = dates_get_list();
+    foreach ($arr as $key => $value) {
+      if ($value['season'] == $season) {
+        $flag = true;
+      }
+    }
+    return $flag;
+  }
+
 function roomArr(){
   global $room_arr;
   $str=json_encode($room_arr, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);

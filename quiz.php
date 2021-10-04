@@ -26,24 +26,38 @@
           Выбранные даты:
         </div>
         <input type="hidden" name="roomArr" value="<?php echo roomArr();?>" >
-        <?php foreach ($selectedDatesArr as $key => $value) {?>
-          <div class="quiz_step-item_content">
-            <label class="checkbox_label">
-              <div class="checkbox_wrapper">
-               <i class="fa fa-check" aria-hidden="true"></i>
-               <input name="selectedDates" 
-               class="selectedDates" type="radio"
-               value="<?php echo $value['date_from'].'||'.$value['date_to'].
-               '||'.$value['camp'].'||'.$value['camp'] ?>"  > 
-             </div>
-             <div>
-               <?php echo $value['date_from'].'-'.$value['date_to'].' '.$value['camp'] ?>
-             </div>
-           </label>
-         </div>
-       <?php   }  ?>
+        <?php dates_show_season ('spring', 'ВЕСНА') ?>
+        <?php dates_show_season ('summer', 'ЛЕТО') ?>
+        <?php dates_show_season ('outumn', 'ОСЕНЬ') ?>
+        <?php dates_show_season ('winter', 'ЗИМА') ?>
      </div>
    </div>
+
+   <?php function dates_show_season ($season,$season_ru) { ?>
+    <?php global $selectedDatesArr; ?>
+     <?php if (dates_check_season($season)): ?>
+          <div class="quiz_step-item_content"><?php echo $season_ru ?>:</div>
+          <?php foreach ($selectedDatesArr as $key => $value) {?>
+            <?php if ($value['season'] == $season): ?>
+              <div class="quiz_step-item_content">
+                <label class="checkbox_label">
+                  <div class="checkbox_wrapper">
+                   <i class="fa fa-check" aria-hidden="true"></i>
+                   <input name="selectedDates" class="selectedDates" type="radio"
+                   value="<?php echo $value['date_from'].'||'.$value['date_to'].
+                   '||'.$value['camp'].'||'.$value['camp'] ?>"  > 
+                 </div>
+                 <div>
+                   <?php echo $value['date_from'].'-'.$value['date_to'].' '.$value['camp'] ?>
+                 </div>
+               </label>
+             </div>
+           <?php endif ?>
+         <?php   }  ?>
+       <?php endif ?>
+   <?php }  ?>
+
+
 
    <div class="quiz_step">
     <div class="quiz_step-item">
@@ -150,55 +164,55 @@
     </div>
   </div>
 
-<div class="quiz_step">
-  <?php for ($i=1; $i <= 3; $i++) { ?>
-    <div class="quiz_step-item">
-      <div class="quiz_step-item_title">
-        ФИО <?php echo $i ?>-го отдыхающего:
-      </div>
-      <div class="quiz_step-item_conten">
-        <div class="input_wrapper">
-          <input type="text" name="member_fio_<?php echo $i; ?> ">
+  <div class="quiz_step">
+    <?php for ($i=1; $i <= 3; $i++) { ?>
+      <div class="quiz_step-item">
+        <div class="quiz_step-item_title">
+          ФИО <?php echo $i ?>-го отдыхающего:
+        </div>
+        <div class="quiz_step-item_conten">
+          <div class="input_wrapper">
+            <input type="text" name="member_fio_<?php echo $i; ?> ">
+          </div>
         </div>
       </div>
-    </div>
-    <div class="quiz_step-item">
-      <div class="quiz_step-item_title">
-        Дата рождения <?php echo $i ?>-го отдыхающего:
-      </div>
-      <div class="quiz_step-item_conten">
-        <div class="input_wrapper">
-          <input type="text" name="member_birstday_<?php echo $i ?>" class="date">
+      <div class="quiz_step-item">
+        <div class="quiz_step-item_title">
+          Дата рождения <?php echo $i ?>-го отдыхающего:
+        </div>
+        <div class="quiz_step-item_conten">
+          <div class="input_wrapper">
+            <input type="text" name="member_birstday_<?php echo $i ?>" class="date">
+          </div>
         </div>
       </div>
-    </div>
-  <?php  }  ?>
-</div>
+    <?php  }  ?>
+  </div>
 
-<div class="quiz_step">
-  <?php for ($i=4; $i <= 6; $i++) { ?>
-    <div class="quiz_step-item">
-      <div class="quiz_step-item_title">
-        ФИО <?php echo $i ?>-го отдыхающего:
-      </div>
-      <div class="quiz_step-item_conten">
-        <div class="input_wrapper">
-          <input type="text" name="member_fio_<?php echo $i; ?> ">
+  <div class="quiz_step">
+    <?php for ($i=4; $i <= 6; $i++) { ?>
+      <div class="quiz_step-item">
+        <div class="quiz_step-item_title">
+          ФИО <?php echo $i ?>-го отдыхающего:
+        </div>
+        <div class="quiz_step-item_conten">
+          <div class="input_wrapper">
+            <input type="text" name="member_fio_<?php echo $i; ?> ">
+          </div>
         </div>
       </div>
-    </div>
-    <div class="quiz_step-item">
-      <div class="quiz_step-item_title">
-        Дата рождения <?php echo $i ?>-го отдыхающего:
-      </div>
-      <div class="quiz_step-item_conten">
-        <div class="input_wrapper">
-          <input type="text" name="member_birstday_<?php echo $i ?>" class="date">
+      <div class="quiz_step-item">
+        <div class="quiz_step-item_title">
+          Дата рождения <?php echo $i ?>-го отдыхающего:
+        </div>
+        <div class="quiz_step-item_conten">
+          <div class="input_wrapper">
+            <input type="text" name="member_birstday_<?php echo $i ?>" class="date">
+          </div>
         </div>
       </div>
-    </div>
-  <?php  }  ?>
-</div>
+    <?php  }  ?>
+  </div>
 
 <!-- <div class="quiz_step">
   <div class="quiz_step-item">

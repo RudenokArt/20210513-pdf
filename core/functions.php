@@ -1,14 +1,14 @@
 <?php 
 
 
-// ========== FUNCTIONS ==========
+include_once 'database.php';
 
 function dates_get_list () {
  $host='localhost';
  $log='o918458x_db';
  $pas='o918458x_pas';
  $db='o918458x_db';
- $link=mysqli_connect($host,$log,$pas,$db);
+ $link = \Core\Database::db_connect();
  $sql=mysqli_query($link,'SELECT * FROM `camp_dates` ');
  $arr=[];
  while ($row = mysqli_fetch_assoc($sql))    {
@@ -17,15 +17,15 @@ function dates_get_list () {
 }
 
 function dates_check_season ($season) { // проверить сезон на наличие туров
-    $flag = false;
-    $arr = dates_get_list();
-    foreach ($arr as $key => $value) {
-      if ($value['season'] == $season) {
-        $flag = true;
-      }
+  $flag = false;
+  $arr = dates_get_list();
+  foreach ($arr as $key => $value) {
+    if ($value['season'] == $season) {
+      $flag = true;
     }
-    return $flag;
   }
+  return $flag;
+}
 
 function roomArr(){
   global $room_arr;

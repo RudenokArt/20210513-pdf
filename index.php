@@ -1,6 +1,7 @@
 <?php header('Content-type: text/html; charset=utf-8');
-
+include_once 'core/database.php';
 include_once 'core/functions.php';
+
 
 // ========== GLOBALS ==========
 

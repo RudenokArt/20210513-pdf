@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 04 2021 г., 03:31
+-- Время создания: Окт 08 2021 г., 01:21
 -- Версия сервера: 5.6.47
 -- Версия PHP: 7.2.29
 
@@ -44,6 +44,27 @@ INSERT INTO `camp_dates` (`id`, `date_from`, `date_to`, `season`, `camp`) VALUES
 (8, '10/01/2021', '10/02/2021', 'outumn', 'Лагерь 11'),
 (9, '10/01/2021', '10/02/2021', 'outumn', 'Лагерь 22');
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `camp_paragraph`
+--
+
+CREATE TABLE `camp_paragraph` (
+  `id` int(8) NOT NULL,
+  `paragraph_type` varchar(50) NOT NULL,
+  `paragraph_number` varchar(250) NOT NULL,
+  `paragraph_text` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `camp_paragraph`
+--
+
+INSERT INTO `camp_paragraph` (`id`, `paragraph_type`, `paragraph_number`, `paragraph_text`) VALUES
+(1, 'contract', '', 'Текст пункта договора\r\n        '),
+(2, 'contract', '11', 'Текст пункта договора\r\n        ');
+
 --
 -- Индексы сохранённых таблиц
 --
@@ -55,6 +76,12 @@ ALTER TABLE `camp_dates`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `camp_paragraph`
+--
+ALTER TABLE `camp_paragraph`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -62,7 +89,13 @@ ALTER TABLE `camp_dates`
 -- AUTO_INCREMENT для таблицы `camp_dates`
 --
 ALTER TABLE `camp_dates`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT для таблицы `camp_paragraph`
+--
+ALTER TABLE `camp_paragraph`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

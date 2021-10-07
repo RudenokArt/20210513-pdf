@@ -3,10 +3,7 @@
 namespace Core;
 header('Content-type: text/html; charset=utf-8');
 include_once '../core/database.php';
-// spl_autoload_register(function($class) {
-//   $filename = str_replace('Core', '../Core', $class) . '.php';
-//   require($filename);
-// });
+
 
 class Dates{
 

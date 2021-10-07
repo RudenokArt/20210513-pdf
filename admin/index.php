@@ -1,8 +1,4 @@
 <?php 
-// spl_autoload_register(function($class) {
-//   $filename = str_replace('Core', '../Core', $class) . '.php';
-//   require($filename);
-// });
 
 include_once '../core/database.php';
 include_once '../core/dates.php';

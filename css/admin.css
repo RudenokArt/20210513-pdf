@@ -11,3 +11,7 @@
 .paragraph_text{
   width: 100%;
 }
+.paragraph_number{
+  padding: 10px;
+  color:rgba(0,0,0,0.2);
+}

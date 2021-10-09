@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 08 2021 г., 01:21
+-- Время создания: Окт 10 2021 г., 01:06
 -- Версия сервера: 5.6.47
 -- Версия PHP: 7.2.29
 
@@ -53,7 +53,7 @@ INSERT INTO `camp_dates` (`id`, `date_from`, `date_to`, `season`, `camp`) VALUES
 CREATE TABLE `camp_paragraph` (
   `id` int(8) NOT NULL,
   `paragraph_type` varchar(50) NOT NULL,
-  `paragraph_number` varchar(250) NOT NULL,
+  `paragraph_number` int(8) NOT NULL,
   `paragraph_text` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -62,8 +62,9 @@ CREATE TABLE `camp_paragraph` (
 --
 
 INSERT INTO `camp_paragraph` (`id`, `paragraph_type`, `paragraph_number`, `paragraph_text`) VALUES
-(1, 'contract', '', 'Текст пункта договора\r\n        '),
-(2, 'contract', '11', 'Текст пункта договора\r\n        ');
+(3, 'contract', 1, '3.1. При заключении Договора, Заказчик обязуется внести Исполнителю обеспечительный платеж в размере 15 000 (Пятнадцать тысяч) рублей, для обеспечения своевременной и надлежащей оплаты услуг, на основании п. 2 Договора.\r\n        '),
+(5, 'contract', 2, '3.2. Моментом внесения обеспечительного платежа признается поступление соответствующих денежных средств на расчетный счет Исполнителя, при этом в соответствующих платежных документах должны быть указаны: назначение платежа: <i>“Обеспечительный платеж по Договору от _____”</i>. В случае оплаты обеспечительного платежа частями (несколькими платежами), моментом внесения обеспечительного платежа признается поступление на расчетный счет Исполнителя последней части суммы обеспечительного платежа.\r\n        '),
+(6, 'contract', 3, '3.3. Обеспечительный платеж, не является платежом по Договору, выполняет исключительно обеспечительную функцию, и по соглашению сторон гарантирует Исполнителю надлежащее исполнение обязательства, предусмотренного п. 2 Договора.\r\n        ');
 
 --
 -- Индексы сохранённых таблиц
@@ -95,7 +96,7 @@ ALTER TABLE `camp_dates`
 -- AUTO_INCREMENT для таблицы `camp_paragraph`
 --
 ALTER TABLE `camp_paragraph`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

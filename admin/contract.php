@@ -17,7 +17,8 @@
      </div>
      <div class="row">
       <div class="col-sm-12 wrapper">
-        <textarea name="paragraph_text" rows="5" class="paragraph_text form-control">Текст пункта договора</textarea>
+        Текст абзаца: 
+        <textarea name="paragraph_text" rows="5" class="paragraph_text form-control"></textarea>
       </div>
     </div>
   </form>
@@ -57,12 +58,4 @@
     </table>
   </div>
 </div>
-
-<hr>
-<?php  
-
-
-
-
-?>
 

@@ -58,6 +58,7 @@ if (isset($_POST['contract']) and $_POST['contract']=='true') {
     // ==============================
   include_once 'core/paragraph.php';
   print_r($data);
+  $contract_text = '';
   foreach (Paragraph::get_list('contract') as $key => $value) {
     $contract_text = $contract_text.'<p>'.$value['paragraph_text'].'</p>';
   }
@@ -73,7 +74,7 @@ if (isset($_POST['contract']) and $_POST['contract']=='true') {
 //echo $contract_text;
 // ==============================
   if (!contractFormGet()) {
-    include_once 'contract.php';
+    include_once 'contract_text.php';
   }else{
     include_once 'contract_2.php';
   }
@@ -90,7 +91,7 @@ if (isset($_POST['contract']) and $_POST['contract']=='true') {
   $dompdf1->render();
   $pdf1 = $dompdf1->output(); 
   file_put_contents(__DIR__ . '/supplement.pdf', $pdf1);
-  include_once 'php_mail/index.php';
+  //include_once 'php_mail/index.php';
 }else { include_once 'layout.php'; }
 
 

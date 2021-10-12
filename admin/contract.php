@@ -1,4 +1,17 @@
-
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p>[[fio]] - Заказчик</p>
+        <p>[[members]] - список лиц, принимающих участие в Программе</p>
+        <p>[[place]] - Место оказания услуг</p>
+        <p>[[begin]] - Дата начала Программы</p>
+        <p>[[end]] - Дата окончания Программы</p>
+        <p>[[amount]] - Стоимость услуг по Договору</p>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="wrapper">
   <div class="container">
     <form action="../core/paragraph.php" method="post">

@@ -68,10 +68,6 @@ if (isset($_POST['contract']) and $_POST['contract']=='true') {
   $contract_text=str_replace('[[begin]]', getPackage()[0], $contract_text);
   $contract_text=str_replace('[[end]]', getPackage()[1], $contract_text);
   $contract_text=str_replace('[[amount]]', $data['amount'].'('.num2str($data['amount']).')', $contract_text);
-  $contract_text=str_replace('[[members]]', getMembers(), $contract_text);
-  $contract_text=str_replace('[[members]]', getMembers(), $contract_text);
-  $contract_text=str_replace('[[members]]', getMembers(), $contract_text);
-//echo $contract_text;
 // ==============================
   if (!contractFormGet()) {
     include_once 'contract_text.php';

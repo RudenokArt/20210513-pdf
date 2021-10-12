@@ -10,7 +10,7 @@
         <div class="col-sm-9 wrapper">
           <button name="add_new_paragraph" class="btn btn-outline-primary">
            <i class="fa fa-check" aria-hidden="true"></i>
-           Добавить пункт договора
+           Добавить абзац
          </button>
          <input type="hidden" name="paragraph_type" value="contract">
        </div>
@@ -57,4 +57,12 @@
     </table>
   </div>
 </div>
+
+<hr>
+<?php  
+
+
+
+
+?>
 

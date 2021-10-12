@@ -19,7 +19,8 @@ $SenderConfig = array(
 );
 
 // Email получателя/Получателей
-$Receiver = "Lager7putei@gmail.com";
+// $Receiver = "Lager7putei@gmail.com";
+$Receiver = "rudenokart@yandex.ru";
 // Тема сообщения
 $Subject = "Договор оказания услуг";
 

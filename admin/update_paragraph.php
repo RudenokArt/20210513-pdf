@@ -3,7 +3,7 @@
 
 <div class="wrapper">
   <div class="container">
-    <p class="h2">Редактирование параграфа</p>
+    <p class="h2">Редактирование абзаца</p>
     <form action="../core/paragraph.php" method="post">
       <div class="row">
         <div class="col-sm-3 wrapper">

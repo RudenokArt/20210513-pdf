@@ -55,20 +55,6 @@ use Dompdf\Dompdf;
 if (isset($_POST['contract']) and $_POST['contract']=='true') {
   $data=$_POST;
   include_once 'amount_in_words.php';
-    // ==============================
-  include_once 'core/paragraph.php';
-  print_r($data);
-  $contract_text = '';
-  foreach (Paragraph::get_list('contract') as $key => $value) {
-    $contract_text = $contract_text.'<p>'.$value['paragraph_text'].'</p>';
-  }
-  $contract_text=str_replace('[[fio]]', $data['fio'], $contract_text);
-  $contract_text=str_replace('[[members]]', getMembers(), $contract_text);
-  $contract_text=str_replace('[[place]]', getPackage()[2], $contract_text);
-  $contract_text=str_replace('[[begin]]', getPackage()[0], $contract_text);
-  $contract_text=str_replace('[[end]]', getPackage()[1], $contract_text);
-  $contract_text=str_replace('[[amount]]', $data['amount'].'('.num2str($data['amount']).')', $contract_text);
-// ==============================
   if (!contractFormGet()) {
     include_once 'contract_text.php';
   }else{
@@ -87,7 +73,7 @@ if (isset($_POST['contract']) and $_POST['contract']=='true') {
   $dompdf1->render();
   $pdf1 = $dompdf1->output(); 
   file_put_contents(__DIR__ . '/supplement.pdf', $pdf1);
-  //include_once 'php_mail/index.php';
+  include_once 'php_mail/index.php';
 }else { include_once 'layout.php'; }
 
 

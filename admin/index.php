@@ -16,7 +16,15 @@ elseif (isset($_GET['delete_paragraph'])) {
 elseif (isset($_GET['page']) and $_GET['page'] == 'contract' ) {
   include_once 'contract.php';
 }
-
+elseif (isset($_GET['page']) and $_GET['page'] == 'supplement_1' ) {
+  include_once 'contract.php';
+}
+elseif (isset($_GET['page']) and $_GET['page'] == 'supplement_2' ) {
+  include_once 'contract.php';
+}
+elseif (isset($_GET['page']) and $_GET['page'] == 'supplement_3' ) {
+  include_once 'contract.php';
+}
 elseif (isset($_GET['dates_update'])) {
   include_once 'dates_update.php';
 }

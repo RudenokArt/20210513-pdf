@@ -54,6 +54,48 @@
             Текст договора 
           </a>
         </li>
+        <li class="nav-item">
+          <a  class="nav-link <?php 
+          if ($_GET['page']=='supplement_1'): ?>
+            <?php echo 'active'; ?>
+            <?php endif ?>" href="?page=supplement_1">
+            Текст приложения 1 
+          </a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link <?php 
+          if ($_GET['page']=='supplement_2'): ?>
+            <?php echo 'active'; ?>
+            <?php endif ?>" href="?page=supplement_2">
+            Текст приложения 2 
+          </a>
+        </li>
+         <li class="nav-item">
+          <a  class="nav-link <?php 
+          if ($_GET['page']=='supplement_3'): ?>
+            <?php echo 'active'; ?>
+            <?php endif ?>" href="?page=supplement_3">
+            Текст приложения 3 
+          </a>
+        </li>
       </ul>
     </div>
   </div>
+
+  <?php if ($_GET['page']=='contract'): ?>
+    <div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p>[[contract_date]] - дата заключения контракта</p>
+        <p>[[fio]] - Заказчик</p>
+        <p>[[members]] - список лиц, принимающих участие в Программе</p>
+        <p>[[place]] - Место оказания услуг</p>
+        <p>[[begin]] - Дата начала Программы</p>
+        <p>[[end]] - Дата окончания Программы</p>
+        <p>[[amount]] - Стоимость услуг по Договору</p>
+      </div>
+    </div>
+  </div>
+</div>
+  <?php endif ?>

@@ -83,6 +83,46 @@ function contractFormGet(){
   return $flag;
 }
 
+function get_contract_text($data) {
+   // =============================
+  include_once 'core/paragraph.php';
+  print_r($data);
+  $contract_text = '';
+  foreach (Paragraph::get_list('contract') as $key => $value) {
+    $contract_text = $contract_text.'<p>'.$value['paragraph_text'].'</p>';
+  }
+  $supplement_1 = '';
+  foreach (Paragraph::get_list('supplement_1') as $key => $value) {
+    $supplement_1 = $supplement_1.'<p>'.$value['paragraph_text'].'</p>';
+  }
+  $supplement_2 = '';
+  foreach (Paragraph::get_list('supplement_2') as $key => $value) {
+    $supplement_2 = $supplement_2.'<p>'.$value['paragraph_text'].'</p>';
+  }
+  $supplement_3 = '';
+  foreach (Paragraph::get_list('supplement_3') as $key => $value) {
+    $supplement_3 = $supplement_3.'<p>'.$value['paragraph_text'].'</p>';
+  }
+  replace_contract_text($data, $contract_text);
+  replace_contract_text($data, $supplement_1);
+  replace_contract_text($data, $supplement_2);
+  replace_contract_text($data, $supplement_3);
+  return [$contract_text, $supplement_1, $supplement_2, $supplement_3];
+  
+  
+}
+
+function replace_contract_text($data, &$contract_text) {
+
+  $contract_text=str_replace('[[contract_date]]', date('d:m:Y'), $contract_text);
+  $contract_text=str_replace('[[fio]]', $data['fio'], $contract_text);
+  $contract_text=str_replace('[[members]]', getMembers(), $contract_text);
+  $contract_text=str_replace('[[place]]', getPackage()[2], $contract_text);
+  $contract_text=str_replace('[[begin]]', getPackage()[0], $contract_text);
+  $contract_text=str_replace('[[end]]', getPackage()[1], $contract_text);
+  $contract_text=str_replace('[[amount]]', $data['amount'].'('.num2str($data['amount']).')', $contract_text);
+
+}
 
 
 ?>

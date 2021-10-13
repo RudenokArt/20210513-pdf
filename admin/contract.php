@@ -1,17 +1,4 @@
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <p>[[fio]] - Заказчик</p>
-        <p>[[members]] - список лиц, принимающих участие в Программе</p>
-        <p>[[place]] - Место оказания услуг</p>
-        <p>[[begin]] - Дата начала Программы</p>
-        <p>[[end]] - Дата окончания Программы</p>
-        <p>[[amount]] - Стоимость услуг по Договору</p>
-      </div>
-    </div>
-  </div>
-</div>
+
 <div class="wrapper">
   <div class="container">
     <form action="../core/paragraph.php" method="post">
@@ -25,7 +12,7 @@
            <i class="fa fa-check" aria-hidden="true"></i>
            Добавить абзац
          </button>
-         <input type="hidden" name="paragraph_type" value="contract">
+         <input type="hidden" name="paragraph_type" value="<?php echo $_GET['page'] ?>">
        </div>
      </div>
      <div class="row">
@@ -40,7 +27,7 @@
 <div class="wrapper">
   <div class="container">
     <table>
-      <?php foreach (Paragraph::get_list('contract') as $key => $value): ?>
+      <?php foreach (Paragraph::get_list($_GET['page']) as $key => $value): ?>
         <tr>
           <th class="paragraph_number">
             <?php echo $value['paragraph_number']; ?>
@@ -50,7 +37,7 @@
           </td>
           <td>
             <form action="" method="get">
-              <input type="hidden" name="page" value="contract">
+              <input type="hidden" name="page" value="<?php echo $_GET['page'] ?>">
               <button value="<?php echo $value['id']; ?>" class="btn btn-outline-success"
                 title="редактировать" name="update_paragraph">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -59,7 +46,8 @@
           </td>
           <td>
             <form action="" method="get">
-              <input type="hidden" name="page" value="contract">
+              <input type="hidden" name="paragraph_type" value="<?php echo $_GET['page'] ?>">
+              <input type="hidden" name="page" value="<?php echo $_GET['page'] ?>">
               <button value="<?php echo $value['id']; ?>" class="btn btn-outline-danger"
                 title="редактировать" name="delete_paragraph">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>

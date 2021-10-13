@@ -19,7 +19,7 @@ class Paragraph {
       mysqli_query($link, $sql);
       echo 'Запись добавлена в таблицу базы данных.';
       echo '<meta http-equiv="refresh" content="2; 
-      url=../admin/index.php?page=contract" />';   
+      url=../admin/index.php?page='.$_POST['paragraph_type'].'" />';   
     }
   }
 
@@ -59,7 +59,7 @@ class Paragraph {
       mysqli_query($link, $sql);
       echo 'Запись таблицы базы данных обновлена.';
       echo '<meta http-equiv="refresh" content="2; 
-      url=../admin/index.php?page=contract" />';   
+      url=../admin/index.php?page='.$_POST['paragraph_type'].'" />';   
     }
   }
 
@@ -70,7 +70,7 @@ class Paragraph {
       mysqli_query($link, $sql);
       echo 'Запись таблицы базы данных удалена.';
       echo '<meta http-equiv="refresh" content="2; 
-      url=../admin/index.php?page=contract" />';   
+      url=../admin/index.php?page='.$_POST['paragraph_type'].'" />';   
     }
   }
 

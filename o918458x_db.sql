@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Хост: localhost
--- Время создания: Мар 17 2022 г., 23:15
--- Версия сервера: 5.7.21-20-beget-5.7.21-20-1-log
--- Версия PHP: 5.6.40
+-- Хост: 127.0.0.1:3306
+-- Время создания: Мар 20 2022 г., 03:01
+-- Версия сервера: 5.6.47
+-- Версия PHP: 7.2.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,12 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `camp_dates`
---
--- Создание: Окт 18 2021 г., 21:55
+-- Структура таблицы `camp_contacts`
 --
 
-DROP TABLE IF EXISTS `camp_dates`;
+CREATE TABLE `camp_contacts` (
+  `id` int(8) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `value` varchar(250) NOT NULL,
+  `description` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `camp_contacts`
+--
+
+INSERT INTO `camp_contacts` (`id`, `name`, `value`, `description`) VALUES
+(1, 'main-site-url', 'https://семейныйлагерь.рф/', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `camp_dates`
+--
+
 CREATE TABLE `camp_dates` (
   `id` int(8) NOT NULL,
   `date_from` varchar(256) NOT NULL,
@@ -66,10 +82,7 @@ INSERT INTO `camp_dates` (`id`, `date_from`, `date_to`, `season`, `camp`) VALUES
 --
 -- Структура таблицы `camp_paragraph`
 --
--- Создание: Окт 18 2021 г., 21:55
---
 
-DROP TABLE IF EXISTS `camp_paragraph`;
 CREATE TABLE `camp_paragraph` (
   `id` int(8) NOT NULL,
   `paragraph_type` varchar(50) NOT NULL,
@@ -197,6 +210,12 @@ INSERT INTO `camp_paragraph` (`id`, `paragraph_type`, `paragraph_number`, `parag
 --
 
 --
+-- Индексы таблицы `camp_contacts`
+--
+ALTER TABLE `camp_contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `camp_dates`
 --
 ALTER TABLE `camp_dates`
@@ -211,6 +230,12 @@ ALTER TABLE `camp_paragraph`
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
+
+--
+-- AUTO_INCREMENT для таблицы `camp_contacts`
+--
+ALTER TABLE `camp_contacts`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `camp_dates`

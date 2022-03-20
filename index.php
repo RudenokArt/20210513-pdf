@@ -1,10 +1,11 @@
 <?php header('Content-type: text/html; charset=utf-8');
+$site_public_page = 'Y';
 include_once 'core/database.php';
 include_once 'core/functions.php';
+include_once 'core/contacts.php';
 
 
 // ========== GLOBALS ==========
-
 $selectedDatesArr=[
   // ['date_from'=>'15/06/2021','date_to'=>'25/06/2021',
   // 'place'=>'Крым Николаевка','room'=>true],

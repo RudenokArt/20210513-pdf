@@ -1,5 +1,4 @@
 <?php include_once 'icons.php' ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +13,11 @@
   <title>Семейный лагерь на море</title>
 </head>
 <body>
-
   <div class="header">
     <div class="header_container">
       <div class="header_menu">
         <div class="header_menu-item">
-          <a href="https://семейныйлагерь.рф/">
+          <a href="<?php echo Contacts::$main_site_url;?>">
           <i class="fa fa-chevron-left" aria-hidden="true"></i>
           На главную
         </a>
@@ -35,8 +33,8 @@
         </div> -->
       </div>
       <div class="logo_wrapper">
-        <a href="https://семейныйлагерь.рф/">
-          <img src="img/header_logo.png" alt="Семейный лагерь" class="logo">
+        <a href="<?php echo Contacts::$main_site_url;?>">
+          <img src="img/header-logo.png" alt="Семейный лагерь" class="logo">
         </a>
       </div>
       <div class="header_contacts">

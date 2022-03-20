@@ -69,6 +69,14 @@
             Текст приложения 3 
           </a>
         </li>
+        <li class="nav-item">
+          <a  class="nav-link <?php 
+          if ($_GET['page']=='contacts'): ?>
+            <?php echo 'active'; ?>
+            <?php endif ?>" href="?page=contacts">
+            Управление контактами 
+          </a>
+        </li>
       </ul>
     </div>
   </div>

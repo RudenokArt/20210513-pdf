@@ -8,12 +8,15 @@ include_once '../core/helpers.php';
 Contacts::newLogo();
 Contacts::setMainSiteUrl();
 Contacts::getMainSiteUrl();
+Contacts::getSitePhone();
+Contacts::setSitePhone();
 /**
  * 
  */
 class Contacts {
 
 	public static $main_site_url;
+	public static $site_phone;
 
 	public static function newLogo () {
 		if (isset($_FILES['header-logo'])) {
@@ -37,6 +40,22 @@ class Contacts {
 		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="main-site-url"');
 		while ($row = mysqli_fetch_assoc($sql)) {
       self::$main_site_url = $row['value'];
+    }
+	}
+
+	public static function setSitePhone () {
+		if (isset($_POST['site-phone'])) {
+			self::sqlQuery('UPDATE `camp_contacts` 
+				SET `value`="'.$_POST['site-phone'].'" WHERE `name`="phone"');
+			Helpers::alertMessage('Запись таблицы базы данных обновлена.');
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
+		}
+	}
+
+	public static function getSitePhone () {
+		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="phone"');
+		while ($row = mysqli_fetch_assoc($sql)) {
+      self::$site_phone = $row['value'];
     }
 	}
 

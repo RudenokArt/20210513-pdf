@@ -38,7 +38,11 @@
         </a>
       </div>
       <div class="header_contacts">
-        <div><a href="tel:+79184517137">+ 7 918 451 7137</a></div>
+        <div>
+          <a href="tel:<?php echo Contacts::$site_phone; ?>">
+            <?php echo Contacts::$site_phone; ?>
+          </a>
+        </div>
         <div>
           <a href="https://vk.com/lager7" class="soc_link">
             <i class="fa fa-vk" aria-hidden="true"></i>

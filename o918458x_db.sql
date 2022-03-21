@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 20 2022 г., 03:01
+-- Время создания: Мар 22 2022 г., 01:24
 -- Версия сервера: 5.6.47
 -- Версия PHP: 7.2.29
 
@@ -39,7 +39,8 @@ CREATE TABLE `camp_contacts` (
 --
 
 INSERT INTO `camp_contacts` (`id`, `name`, `value`, `description`) VALUES
-(1, 'main-site-url', 'https://семейныйлагерь.рф/', '');
+(1, 'main-site-url', 'https://семейныйлагерь.рф/', ''),
+(2, 'phone', '+79184517137', '');
 
 -- --------------------------------------------------------
 
@@ -235,7 +236,7 @@ ALTER TABLE `camp_paragraph`
 -- AUTO_INCREMENT для таблицы `camp_contacts`
 --
 ALTER TABLE `camp_contacts`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `camp_dates`

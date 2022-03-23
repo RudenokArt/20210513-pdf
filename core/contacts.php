@@ -10,6 +10,8 @@ Contacts::setMainSiteUrl();
 Contacts::getMainSiteUrl();
 Contacts::getSitePhone();
 Contacts::setSitePhone();
+Contacts::saveIcon();
+Contacts::getIconsList();
 /**
  * 
  */
@@ -17,12 +19,41 @@ class Contacts {
 
 	public static $main_site_url;
 	public static $site_phone;
+	public static $social_icons_list;
+	public static $social_icons = [
+		'vk',
+		'facebook-square',
+		'facebook',
+		'facebook-official',
+		'twitter-square',
+		'twitter',
+		'skype',
+		'instagram',
+		'odnoklassniki',
+		'odnoklassniki-square',
+		'whatsapp',
+		'youtube',
+		'youtube-play',
+		'envelope-o',
+		'envelope',
+		'envelope-square',
+	];
 
 	public static function newLogo () {
 		if (isset($_FILES['header-logo'])) {
 			$file_type = explode('.', $_FILES['header-logo']['name'])[1];
 			move_uploaded_file($_FILES['header-logo']['tmp_name'],'../img/header-logo.'.$file_type);
 			Helpers::alertMessage('Логотип сохранен.');
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
+		}
+	}
+
+	public static function saveIcon () {
+		if (isset($_POST['add-social-icon'])) {
+			self::sqlQuery('INSERT INTO `camp_contacts`(`name`, `value`, `icon`)
+				VALUES ("social", "'.$_POST['link'].'", "'.$_POST['icon'].'")');
+			print_r($_POST);
+			Helpers::alertMessage('Запись таблицы базы данных обновлена.');
 			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
 		}
 	}
@@ -36,6 +67,14 @@ class Contacts {
 		}
 	}
 
+	public static function getIconsList () {
+		$sql = self::sqlQuery('SELECT * FROM `camp_contacts` WHERE `name`="social"');
+		$arr = [];
+		while ($row = mysqli_fetch_assoc($sql)) {
+			array_push($arr, $row);
+		}
+		self::$social_icons_list = $arr;
+	}
 	public static function getMainSiteUrl () {
 		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="main-site-url"');
 		while ($row = mysqli_fetch_assoc($sql)) {

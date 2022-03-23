@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 22 2022 г., 01:24
+-- Время создания: Мар 24 2022 г., 01:22
 -- Версия сервера: 5.6.47
 -- Версия PHP: 7.2.29
 
@@ -31,16 +31,18 @@ CREATE TABLE `camp_contacts` (
   `id` int(8) NOT NULL,
   `name` varchar(250) NOT NULL,
   `value` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+  `icon` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `camp_contacts`
 --
 
-INSERT INTO `camp_contacts` (`id`, `name`, `value`, `description`) VALUES
+INSERT INTO `camp_contacts` (`id`, `name`, `value`, `icon`) VALUES
 (1, 'main-site-url', 'https://семейныйлагерь.рф/', ''),
-(2, 'phone', '+79184517137', '');
+(2, 'phone', '+79184517137', ''),
+(3, 'social', 'qqq', 'whatsapp'),
+(4, 'social', 'sdfsdf', 'odnoklassniki-square');
 
 -- --------------------------------------------------------
 
@@ -236,7 +238,7 @@ ALTER TABLE `camp_paragraph`
 -- AUTO_INCREMENT для таблицы `camp_contacts`
 --
 ALTER TABLE `camp_contacts`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `camp_dates`

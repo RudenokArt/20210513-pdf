@@ -18,9 +18,9 @@
       <div class="header_menu">
         <div class="header_menu-item">
           <a href="<?php echo Contacts::$main_site_url;?>">
-          <i class="fa fa-chevron-left" aria-hidden="true"></i>
-          На главную
-        </a>
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            На главную
+          </a>
         </div>
         <!-- <div class="header_menu-item">
           <a href="https://семейныйлагерь.рф/history">О нас</a>
@@ -44,15 +44,11 @@
           </a>
         </div>
         <div>
-          <a href="https://vk.com/lager7" class="soc_link">
-            <i class="fa fa-vk" aria-hidden="true"></i>
-          </a>
-          <a href="https://www.instagram.com/familyclub7p/" class="soc_link">
-            <i class="fa fa-instagram" aria-hidden="true"></i>
-          </a>
-          <a href="https://tlgg.ru/@Yulia_Pladas" class="soc_link">
-            <i class="fa fa-telegram" aria-hidden="true"></i>
-          </a>
+          <?php foreach (Contacts::$social_icons_list as $key => $value): ?>
+            <a href="<?php echo $value['value'] ?>" class="soc_link">
+              <i class="fa fa-<?php  echo $value['icon'];?>" aria-hidden="true"></i>
+            </a>
+          <?php endforeach ?>
         </div>
       </div>
     </div>

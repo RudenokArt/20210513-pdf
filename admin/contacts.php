@@ -61,8 +61,13 @@
 		</div>
 	</div>
 </form>
-<div class="container pt-4">
-	<div class="row justify-content-center">
+<div class="container pt-5">
+	<div class="row">
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<div class="h3">
+				Социальные сети
+			</div>
+		</div>
 		<div class="col-lg-4 col-md-6 col-sm-12">
 			<!-- Button trigger modal -->
 			<button type="button" class="btn btn-outline-info" 
@@ -113,30 +118,62 @@
 	</div>
 </div>
 <?php foreach (Contacts::$social_icons_list as $key => $value): ?>
-	<div class="row justify-content-center h5 text-info">
-		<div class="col-lg-4 col-md-6 col-sm-12 p-2 border-bottom">
-			<i class="fa fa-<?php  echo $value['icon'] ?>" aria-hidden="true"></i>
+	<div class="row h5 text-info p-3 border-bottom">
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<i class="fa fa-<?php  echo $value['icon'];?>" aria-hidden="true"></i>
 			<?php echo $value['value'] ?>
 		</div>
+		<div class="col-1">
+			<button class="btn btn-outline-info" type="button" data-toggle="collapse" 
+			data-target="#collapseExample_<?php echo $value['id'];?>" aria-expanded="false" 
+			aria-controls="collapseExample_<?php echo $value['id'];?>">
+			<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+		</button>
 	</div>
+	<div class="col-1">
+		<form action="../core/contacts.php" method="post">
+			<button class="btn btn-outline-danger" value="<?php echo $value['id'];?>"
+				name="delete-social-icon" title="Удалить">
+				<i class="fa fa-trash-o" aria-hidden="true"></i>
+			</button>
+		</form>
+	</div>
+</div>
+<div class="row">
+	<div class="col collapse" id="collapseExample_<?php echo $value['id'];?>">
+		<form action="../core/contacts.php" method="post">
+			<div class="container border-bottom">
+				<div class="row">
+					<div class="col-1 text-right h5">URL:</div>
+					<div class="col-9">
+						<input value="<?php echo $value['value'];?>" 
+						type="text" name="link" class="form-control">
+					</div>
+					<div class="col-2">
+						<button name="update-social-icon" value="<?php echo $value['id'];?>" 
+							class="btn btn-outline-primary">
+							<i class="fa fa-floppy-o" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div class="row justify-content-center p-3">
+					<?php foreach (Contacts::$social_icons as $key1 => $value1): ?>
+						<div class="col-4 form-check">
+							<label class="h4 form-check-label text-info">
+								<input type="radio" value="<?php echo $value1;?>"
+								<?php if ($value['icon']==$value1): ?>
+									checked
+								<?php endif ?>
+								name="icon" class="form-check-input">
+								<i class="fa fa-<?php echo $value1;?>" aria-hidden="true"></i>
+							</label>
+						</div>
+					<?php endforeach ?>
+				</div>
+			</div>
+		</form>			
+	</div>
+</div>
 <?php endforeach ?>
 </div>
-
-
-<i class="fa fa-vk" aria-hidden="true"></i>
-<i class="fa fa-facebook-square" aria-hidden="true"></i>
-<i class="fa fa-facebook" aria-hidden="true"></i>
-<i class="fa fa-facebook-official" aria-hidden="true"></i>
-<i class="fa fa-twitter-square" aria-hidden="true"></i>
-<i class="fa fa-twitter" aria-hidden="true"></i>
-<i class="fa fa-skype" aria-hidden="true"></i>
-<i class="fa fa-instagram" aria-hidden="true"></i>
-<i class="fa fa-odnoklassniki" aria-hidden="true"></i>
-<i class="fa fa-odnoklassniki-square" aria-hidden="true"></i>
-<i class="fa fa-instagram" aria-hidden="true"></i>
-<i class="fa fa-whatsapp" aria-hidden="true"></i>
-<i class="fa fa-youtube" aria-hidden="true"></i>
-<i class="fa fa-youtube-play" aria-hidden="true"></i>
-<i class="fa fa-envelope-o" aria-hidden="true"></i>
-<i class="fa fa-envelope" aria-hidden="true"></i>
-<i class="fa fa-envelope-square" aria-hidden="true"></i>
+<div style="height:25vh"></div>

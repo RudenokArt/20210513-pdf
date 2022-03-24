@@ -12,6 +12,8 @@ Contacts::getSitePhone();
 Contacts::setSitePhone();
 Contacts::saveIcon();
 Contacts::getIconsList();
+Contacts::deleteSocialIcon();
+Contacts::updeteSocialIcon();
 /**
  * 
  */
@@ -27,6 +29,7 @@ class Contacts {
 		'facebook-official',
 		'twitter-square',
 		'twitter',
+		'telegram',
 		'skype',
 		'instagram',
 		'odnoklassniki',
@@ -52,7 +55,6 @@ class Contacts {
 		if (isset($_POST['add-social-icon'])) {
 			self::sqlQuery('INSERT INTO `camp_contacts`(`name`, `value`, `icon`)
 				VALUES ("social", "'.$_POST['link'].'", "'.$_POST['icon'].'")');
-			print_r($_POST);
 			Helpers::alertMessage('Запись таблицы базы данных обновлена.');
 			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
 		}
@@ -63,6 +65,25 @@ class Contacts {
 			self::sqlQuery('UPDATE `camp_contacts` 
 				SET `value`="'.$_POST['main-site-url'].'" WHERE `name`="main-site-url"');
 			Helpers::alertMessage('Запись таблицы базы данных обновлена.');
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
+		}
+	}
+
+	public static function updeteSocialIcon () {
+		if (isset($_POST['update-social-icon'])) {
+			self::sqlQuery('UPDATE `camp_contacts` 
+				SET `value`="'.$_POST['link'].'",`icon`="'.$_POST['icon'].'" 
+				WHERE `id`='.$_POST['update-social-icon']);
+			Helpers::alertMessage('Запись таблицы базы данных обновлена.');
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>'; 
+		}
+	}
+
+	public static function deleteSocialIcon () {
+		if (isset($_POST['delete-social-icon'])) {
+			self::sqlQuery('DELETE from `camp_contacts`
+				WHERE `id`="'.$_POST['delete-social-icon'].'"');
+			Helpers::alertMessage('Запись таблицы базы данных удалена.');
 			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
 		}
 	}

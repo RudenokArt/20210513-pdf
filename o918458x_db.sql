@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Мар 24 2022 г., 01:22
--- Версия сервера: 5.6.47
--- Версия PHP: 7.2.29
+-- Host: 127.0.0.1:3306
+-- Generation Time: Mar 25, 2022 at 01:21 AM
+-- Server version: 5.6.47
+-- PHP Version: 7.2.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `o918458x_db`
+-- Database: `o918458x_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `camp_contacts`
+-- Table structure for table `camp_contacts`
 --
 
 CREATE TABLE `camp_contacts` (
@@ -35,19 +35,20 @@ CREATE TABLE `camp_contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `camp_contacts`
+-- Dumping data for table `camp_contacts`
 --
 
 INSERT INTO `camp_contacts` (`id`, `name`, `value`, `icon`) VALUES
 (1, 'main-site-url', 'https://семейныйлагерь.рф/', ''),
 (2, 'phone', '+79184517137', ''),
-(3, 'social', 'qqq', 'whatsapp'),
-(4, 'social', 'sdfsdf', 'odnoklassniki-square');
+(5, 'social', 'https://www.instagram.com/familyclub7p/', 'instagram'),
+(6, 'social', 'https://vk.com/lager7', 'vk'),
+(7, 'social', 'https://tlgg.ru/@Yulia_Pladas', 'telegram');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `camp_dates`
+-- Table structure for table `camp_dates`
 --
 
 CREATE TABLE `camp_dates` (
@@ -59,7 +60,7 @@ CREATE TABLE `camp_dates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `camp_dates`
+-- Dumping data for table `camp_dates`
 --
 
 INSERT INTO `camp_dates` (`id`, `date_from`, `date_to`, `season`, `camp`) VALUES
@@ -83,7 +84,7 @@ INSERT INTO `camp_dates` (`id`, `date_from`, `date_to`, `season`, `camp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `camp_paragraph`
+-- Table structure for table `camp_paragraph`
 --
 
 CREATE TABLE `camp_paragraph` (
@@ -94,7 +95,7 @@ CREATE TABLE `camp_paragraph` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `camp_paragraph`
+-- Dumping data for table `camp_paragraph`
 --
 
 INSERT INTO `camp_paragraph` (`id`, `paragraph_type`, `paragraph_number`, `paragraph_text`) VALUES
@@ -209,45 +210,45 @@ INSERT INTO `camp_paragraph` (`id`, `paragraph_type`, `paragraph_number`, `parag
 (118, 'supplement_3', 40, 'Срок действия согласия - 1 (Один) год. Согласие может быть отозвано путем направления письменного уведомления на электронный адрес ИП Пладас Юлии Владимировны, указанный в Договоре.  Если согласие не было отозвано в указанный срок, срок действия согласия автоматически продлевается до момента его отзыва.\r\nВ случае отзыва указанного согласия, ИП Пладас Юлия Владимировна обязуется прекратить обработку не позднее 30 (тридцати) дней с даты получения такого требования.');
 
 --
--- Индексы сохранённых таблиц
+-- Indexes for dumped tables
 --
 
 --
--- Индексы таблицы `camp_contacts`
+-- Indexes for table `camp_contacts`
 --
 ALTER TABLE `camp_contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `camp_dates`
+-- Indexes for table `camp_dates`
 --
 ALTER TABLE `camp_dates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `camp_paragraph`
+-- Indexes for table `camp_paragraph`
 --
 ALTER TABLE `camp_paragraph`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблицы `camp_contacts`
+-- AUTO_INCREMENT for table `camp_contacts`
 --
 ALTER TABLE `camp_contacts`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT для таблицы `camp_dates`
+-- AUTO_INCREMENT for table `camp_dates`
 --
 ALTER TABLE `camp_dates`
   MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT для таблицы `camp_paragraph`
+-- AUTO_INCREMENT for table `camp_paragraph`
 --
 ALTER TABLE `camp_paragraph`
   MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;

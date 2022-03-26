@@ -14,6 +14,9 @@ Contacts::saveIcon();
 Contacts::getIconsList();
 Contacts::deleteSocialIcon();
 Contacts::updeteSocialIcon();
+Contacts::setTagTitle();
+Contacts::getTagTitle();
+Contacts::newFavicon();
 /**
  * 
  */
@@ -22,6 +25,7 @@ class Contacts {
 	public static $main_site_url;
 	public static $site_phone;
 	public static $social_icons_list;
+	public static $tag_title;
 	public static $social_icons = [
 		'vk',
 		'facebook-square',
@@ -51,6 +55,15 @@ class Contacts {
 		}
 	}
 
+	public static function newFavicon () {
+		if (isset($_FILES['fav_logo'])) {
+			$file_type = explode('.', $_FILES['fav_logo']['name'])[1];
+			move_uploaded_file($_FILES['fav_logo']['tmp_name'],'../img/fav_logo.'.$file_type);
+			Helpers::alertMessage('favicon сохранен.');
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
+		}
+	}
+
 	public static function saveIcon () {
 		if (isset($_POST['add-social-icon'])) {
 			self::sqlQuery('INSERT INTO `camp_contacts`(`name`, `value`, `icon`)
@@ -67,6 +80,22 @@ class Contacts {
 			Helpers::alertMessage('Запись таблицы базы данных обновлена.');
 			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
 		}
+	}
+
+	public static function setTagTitle () {
+		if (isset($_POST['tag-title'])) {
+			self::sqlQuery('UPDATE `camp_contacts` 
+				SET `value`="'.$_POST['tag-title'].'" WHERE `name`="tag-title"');
+			Helpers::alertMessage('Запись таблицы базы данных обновлена.');
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
+		}
+	}
+
+	public static function getTagTitle () {
+		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="tag-title"');
+		while ($row = mysqli_fetch_assoc($sql)) {
+      self::$tag_title = $row['value'];
+    }
 	}
 
 	public static function updeteSocialIcon () {
@@ -96,6 +125,7 @@ class Contacts {
 		}
 		self::$social_icons_list = $arr;
 	}
+
 	public static function getMainSiteUrl () {
 		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="main-site-url"');
 		while ($row = mysqli_fetch_assoc($sql)) {

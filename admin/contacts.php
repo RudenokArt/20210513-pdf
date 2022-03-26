@@ -19,6 +19,29 @@
 		</div>
 	</div>
 </form>
+
+<form action="../core/contacts.php" enctype="multipart/form-data" method="post">
+	<div class="container pt-4 border-bottom">
+		<div class="row pb-4">
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<p class="h5">Favicon (иконка на вкладке браузера):</p>
+				<i>Логотип должен быть в формате .ico</i>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<input type="file" name="fav_logo">
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<button class="btn btn-outline-info">
+					<i class="fa fa-floppy-o" aria-hidden="true"></i>
+				</button>			
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<img src="../img/fav_logo.ico" alt="log" height="100">
+			</div>
+		</div>
+	</div>
+</form>
+
 <form action="../core/contacts.php" method="post">
 	<div class="container pt-4 border-bottom">
 		<div class="row pb-4">
@@ -41,6 +64,30 @@
 		</div>
 	</div>
 </form>
+
+<form action="../core/contacts.php" method="post">
+	<div class="container pt-4 border-bottom">
+		<div class="row pb-4">
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="h5">
+					Тэг "title" (Название вкладки браузера):
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<input type="text" class="form-control" name="tag-title">
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<button class="btn btn-outline-info">
+					<i class="fa fa-floppy-o" aria-hidden="true"></i>
+				</button>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<?php print_r(Contacts::$tag_title);?>
+			</div>
+		</div>
+	</div>
+</form>
+
 <form action="../core/contacts.php" method="post">
 	<div class="container pt-4 border-bottom">
 		<div class="row pb-4">

@@ -14,7 +14,7 @@ $SenderConfig = array(
     "SMTP_server"   =>  "smtp.yandex.ru",
     "SMTP_port"     =>  "465",
     "SMTP_email"    =>  "Yuliapladas@yandex.ru",
-    "SMTP_pass"     =>  "33067477las94",
+    "SMTP_pass"     =>  "33067477Las94",
     "SMTP_type"     =>  "ssl"
 );
 

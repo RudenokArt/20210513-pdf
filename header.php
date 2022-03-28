@@ -35,7 +35,7 @@
       </div>
       <div class="logo_wrapper">
         <a href="<?php echo Contacts::$main_site_url;?>">
-          <img src="img/header-logo.png" alt="Семейный лагерь" class="logo">
+          <img src="img/header-logo.png?v=<?php echo time();?>" alt="Семейный лагерь" class="logo">
         </a>
       </div>
       <div class="header_contacts">

@@ -14,7 +14,7 @@
 				</button>			
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-12">
-				<img src="../img/header-logo.png" alt="log" height="100">
+				<img src="../img/header-logo.png?v=<?php echo time(); ?>" alt="log" height="100">
 			</div>
 		</div>
 	</div>

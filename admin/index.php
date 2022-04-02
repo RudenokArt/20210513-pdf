@@ -29,6 +29,9 @@ elseif (isset($_GET['page']) and $_GET['page'] == 'supplement_3' ) {
 elseif (isset($_GET['page']) and $_GET['page'] == 'contacts' ) {
   include_once 'contacts.php';
 }
+elseif (isset($_GET['page']) and $_GET['page'] == 'contacts_pdf' ) {
+  include_once 'contacts_pdf.php';
+}
 elseif (isset($_GET['dates_update'])) {
   include_once 'dates_update.php';
 }

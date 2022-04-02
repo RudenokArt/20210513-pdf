@@ -1,4 +1,3 @@
-<?php include_once 'icons.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

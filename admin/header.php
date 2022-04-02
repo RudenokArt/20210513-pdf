@@ -34,7 +34,7 @@
           if ($_GET['page']=='dates' or !isset($_GET['page'])): ?>
             <?php echo 'active'; ?>
             <?php endif ?>" href="?page=dates">
-            Управление датами 
+            Управление <br> датами 
           </a>
         </li>
         <li class="nav-item">
@@ -42,7 +42,7 @@
           if ($_GET['page']=='contract'): ?>
             <?php echo 'active'; ?>
             <?php endif ?>" href="?page=contract">
-            Текст договора 
+            Текст <br> договора 
           </a>
         </li>
         <li class="nav-item">
@@ -50,7 +50,7 @@
           if ($_GET['page']=='supplement_1'): ?>
             <?php echo 'active'; ?>
             <?php endif ?>" href="?page=supplement_1">
-            Текст приложения 1 
+            Текст <br> приложения 1 
           </a>
         </li>
         <li class="nav-item">
@@ -58,7 +58,7 @@
           if ($_GET['page']=='supplement_2'): ?>
             <?php echo 'active'; ?>
             <?php endif ?>" href="?page=supplement_2">
-            Текст приложения 2 
+            Текст <br> приложения 2 
           </a>
         </li>
          <li class="nav-item">
@@ -66,7 +66,15 @@
           if ($_GET['page']=='supplement_3'): ?>
             <?php echo 'active'; ?>
             <?php endif ?>" href="?page=supplement_3">
-            Текст приложения 3 
+            Текст <br> приложения 3 
+          </a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link <?php 
+          if ($_GET['page']=='contacts_pdf'): ?>
+            <?php echo 'active'; ?>
+            <?php endif ?>" href="?page=contacts_pdf">
+            Реквизиты <br> договора 
           </a>
         </li>
         <li class="nav-item">
@@ -74,7 +82,7 @@
           if ($_GET['page']=='contacts'): ?>
             <?php echo 'active'; ?>
             <?php endif ?>" href="?page=contacts">
-            Управление контактами 
+            Управление <br> контактами 
           </a>
         </li>
       </ul>

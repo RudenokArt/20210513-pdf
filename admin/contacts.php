@@ -25,7 +25,7 @@
 		<div class="row pb-4">
 			<div class="col-lg-3 col-md-6 col-sm-12">
 				<p class="h5">Favicon (иконка на вкладке браузера):</p>
-				<i>Логотип должен быть в формате .ico</i>
+				<i>Favicon должен быть в формате .ico</i>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-12">
 				<input type="file" name="fav_logo">
@@ -37,6 +37,50 @@
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-12">
 				<img src="../img/fav_logo.ico" alt="log" height="100">
+			</div>
+		</div>
+	</div>
+</form>
+
+<form action="../core/contacts.php" enctype="multipart/form-data" method="post">
+	<div class="container pt-4 border-bottom">
+		<div class="row pb-4">
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<p class="h5">Печать:</p>
+				<i>Печать должна быть в формате .png на прозрачном фоне</i>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<input type="file" name="contract-stamp">
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<button class="btn btn-outline-info">
+					<i class="fa fa-floppy-o" aria-hidden="true"></i>
+				</button>			
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<img src="../img/stamp.png?v=<?php echo time(); ?>" alt="log" height="100">
+			</div>
+		</div>
+	</div>
+</form>
+
+<form action="../core/contacts.php" enctype="multipart/form-data" method="post">
+	<div class="container pt-4 border-bottom">
+		<div class="row pb-4">
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<p class="h5">Подпись:</p>
+				<i>Подпись должна быть в формате .png на прозрачном фоне</i>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<input type="file" name="contract-signature">
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<button class="btn btn-outline-info">
+					<i class="fa fa-floppy-o" aria-hidden="true"></i>
+				</button>			
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<img src="../img/signature.png?v=<?php echo time(); ?>" alt="log" height="100">
 			</div>
 		</div>
 	</div>
@@ -108,6 +152,28 @@
 		</div>
 	</div>
 </form>
+
+<form action="../core/contacts.php" method="post">
+	<div class="container pt-4 border-bottom">
+		<div class="row pb-4">
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="h5">Email:</div>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<input type="text" class="form-control" name="admin-mail">
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<button class="btn btn-outline-info">
+					<i class="fa fa-floppy-o" aria-hidden="true"></i>
+				</button>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<?php print_r(Contacts::$admin_mail);?>
+			</div>
+		</div>
+	</div>
+</form>
+
 <div class="container pt-5">
 	<div class="row">
 		<div class="col-lg-4 col-md-6 col-sm-12">

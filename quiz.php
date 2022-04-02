@@ -214,28 +214,6 @@
     <?php  }  ?>
   </div>
 
-<!-- <div class="quiz_step">
-  <div class="quiz_step-item">
-    <div class="quiz_step-item_title">
-      Мне удобнее получать сообщения от вас через:
-    </div>
-    <?php //foreach ($selectedMessageOptionArr as $key => $value) {?>
-      <div class="quiz_step-item_content">
-        <label class="checkbox_label">
-          <div class="checkbox_wrapper">
-           <i class="fa fa-check" aria-hidden="true"></i>
-           <input name="selectedMessanger"
-           value="<?php// echo $value ?>" type="radio" > 
-         </div>
-         <div>
-           <?php //echo $value ?>
-         </div>
-       </label>
-     </div>
-   <?php //  }  ?>
- </div>
-</div> -->
-
 </div>
 </form>
 

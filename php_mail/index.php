@@ -19,8 +19,8 @@ $SenderConfig = array(
 );
 
 // Email получателя/Получателей
-$Receiver = "Lager7putei@gmail.com";
-// $Receiver = "rudenokart@yandex.ru";
+// Lager7putei@gmail.com
+$Receiver = Contacts::$admin_mail;
 // Тема сообщения
 $Subject = "Договор оказания услуг";
 
@@ -59,7 +59,7 @@ if($mail->isLogin) {
  else {
     echo "Возникла ошибка во время подключения к SMTP-серверу<br />";
  }
-echo "<p>Сообщение отправлено Администратору.</p>
-<p>Договор с приложениями отправлен на почту указанную в заявке</p>";
+ Helpers::alertMessage('<p>Сообщение отправлено Администратору.</p>
+    <p>Договор с приложениями отправлен на почту указанную в заявке.</p>');
 echo '<meta http-equiv="refresh" content="5; url=https://семейныйлагерь.рф/" />'
 ?>

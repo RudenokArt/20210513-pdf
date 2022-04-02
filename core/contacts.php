@@ -17,6 +17,12 @@ Contacts::updeteSocialIcon();
 Contacts::setTagTitle();
 Contacts::getTagTitle();
 Contacts::newFavicon();
+Contacts::getAdminMail();
+Contacts::setAdminMail();
+Contacts::newStamp();
+Contacts::newSignature();
+Contacts::setContactsPDF();
+Contacts::getContactsPDF();
 /**
  * 
  */
@@ -24,6 +30,8 @@ class Contacts {
 
 	public static $main_site_url;
 	public static $site_phone;
+	public static $admin_mail;
+	public static $contacts_pdf;
 	public static $social_icons_list;
 	public static $tag_title;
 	public static $social_icons = [
@@ -60,6 +68,25 @@ class Contacts {
 			$file_type = explode('.', $_FILES['fav_logo']['name'])[1];
 			move_uploaded_file($_FILES['fav_logo']['tmp_name'],'../img/fav_logo.'.$file_type);
 			Helpers::alertMessage('favicon сохранен.');
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
+		}
+	}
+
+	public static function newStamp () {
+		if (isset($_FILES['contract-stamp'])) {
+			$file_type = explode('.', $_FILES['contract-stamp']['name'])[1];
+			move_uploaded_file($_FILES['contract-stamp']['tmp_name'],'../img/stamp.'.$file_type);
+			Helpers::alertMessage('Печать сохранена.');
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
+		}
+	}
+
+	public static function newSignature () {
+		if (isset($_FILES['contract-signature'])) {
+			$file_type = explode('.', $_FILES['contract-signature']['name'])[1];
+			move_uploaded_file($_FILES['contract-signature']['tmp_name'],
+				'../img/signature.'.$file_type);
+			Helpers::alertMessage('Подпись сохранена.');
 			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
 		}
 	}
@@ -146,6 +173,38 @@ class Contacts {
 		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="phone"');
 		while ($row = mysqli_fetch_assoc($sql)) {
       self::$site_phone = $row['value'];
+    }
+	}
+
+	public static function setContactsPDF () {
+		if (isset($_POST['contacts_pdf'])) {
+			self::sqlQuery('UPDATE `camp_contacts` 
+				SET `value`=`'.$_POST['contacts_pdf'].'` WHERE `name`="contacts_pdf"');
+			Helpers::alertMessage('Запись таблицы базы данных обновлена.');
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts_pdf"/>';
+		}
+	}
+
+	public static function getContactsPDF () {
+		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="contacts_pdf"');
+		while ($row = mysqli_fetch_assoc($sql)) {
+      self::$contacts_pdf = $row['value'];
+    }
+	}
+
+	public static function setAdminMail () {
+		if (isset($_POST['admin-mail'])) {
+			self::sqlQuery('UPDATE `camp_contacts` 
+				SET `value`="'.$_POST['admin-mail'].'" WHERE `name`="email"');
+			Helpers::alertMessage('Запись таблицы базы данных обновлена.');
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
+		}
+	}
+
+	public static function getAdminMail () {
+		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="email"');
+		while ($row = mysqli_fetch_assoc($sql)) {
+      self::$admin_mail = $row['value'];
     }
 	}
 

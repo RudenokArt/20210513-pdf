@@ -86,7 +86,6 @@ function contractFormGet(){
 function get_contract_text($data) {
    // =============================
   include_once 'core/paragraph.php';
-  print_r($data);
   $contract_text = '';
   foreach (Paragraph::get_list('contract') as $key => $value) {
     $contract_text = $contract_text.'<p>'.$value['paragraph_text'].'</p>';
@@ -108,8 +107,6 @@ function get_contract_text($data) {
   replace_contract_text($data, $supplement_2);
   replace_contract_text($data, $supplement_3);
   return [$contract_text, $supplement_1, $supplement_2, $supplement_3];
-  
-  
 }
 
 function replace_contract_text($data, &$contract_text) {

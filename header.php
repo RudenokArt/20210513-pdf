@@ -13,6 +13,7 @@
   <title><?php print_r(Contacts::$tag_title);?></title>
 </head>
 <body>
+  <pre><?php print_r(Contacts::$supplement_status); ?></pre>
   <div class="header">
     <div class="header_container">
       <div class="header_menu">

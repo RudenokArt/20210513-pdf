@@ -25,7 +25,7 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <pre><?php print_r($_SESSION); ?></pre>
   <div class="top_menu wrapper"> 
     <div class="container">
       <ul class="nav nav-tabs bg-light">
@@ -82,8 +82,15 @@
           if ($_GET['page']=='contacts'): ?>
             <?php echo 'active'; ?>
             <?php endif ?>" href="?page=contacts">
-            Управление <br> контактами 
+            Реквизиты <br> на сайте  
           </a>
+        </li>
+        <li class="nav-item p-3">
+         <form action="../core/contacts.php" method="post">
+            <button class="btn btn-outline-info" name="log_out" value="Y">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+          </button>
+         </form>
         </li>
       </ul>
     </div>

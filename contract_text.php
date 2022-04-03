@@ -94,9 +94,13 @@ ______________________ (подпись, расшифровка)
 </div>
 '.$foot;
 
+$pdf_supplement_number = 0;
+if (Contacts::$supplement_status['supplement_1']=='Y') {
+  $pdf_supplement_number++;
+}
 $html1=$head.'
 <div class="right_top">
-Приложение № 1 <br>
+Приложение № '.$pdf_supplement_number.' <br>
 к Договору оказания услуг по организации <br>
 семейного спортивного досуга <br>
 от '.
@@ -118,10 +122,14 @@ date('d:m:Y')
 <p><b>С правилами ознакомлен:</b></p>
 <p>Заказчик _________________________________________(подпись, расшифровка)
 <br><br>« ____»  _____________ 2021 г.</p>
+'.$foot;
 
+if (Contacts::$supplement_status['supplement_2']=='Y') {
+  $pdf_supplement_number++;
+}
+$html2=$head.'
 <div class="right_top">
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-Приложение № 2 <br>
+Приложение № '.$pdf_supplement_number.' <br>
 к Договору оказания услуг по организации <br>
 семейного спортивного досуга <br>
 от '.
@@ -143,10 +151,14 @@ date('d:m:Y')
 <p><b>С содержанием Программы семейного спортивного досуга ознакомлен и согласен:</b></p>
 <p>Заказчик _________________________________________(подпись, расшифровка)
 <br><br>« ____»  _____________ 2021 г.</p>
+'.$foot;
 
+if (Contacts::$supplement_status['supplement_3']=='Y') {
+  $pdf_supplement_number++;
+}
+$html3=$head.'
 <div class="right_top">
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-Приложение № 3 <br>
+Приложение № '.$pdf_supplement_number.' <br>
 к Договору оказания услуг по организации <br>
 семейного спортивного досуга <br>
 от '.

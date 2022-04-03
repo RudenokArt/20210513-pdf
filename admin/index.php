@@ -1,14 +1,16 @@
-<?php 
+<?php
 include_once '../core/database.php';
 include_once '../core/helpers.php';
 include_once '../core/dates.php';
 include_once '../core/paragraph.php';
 include_once '../core/contacts.php';
 ?>
-<?php include_once 'header.php'; ?>
-
 <?php 
-if (isset($_GET['update_paragraph'])) {
+include_once 'header.php';  
+if (!isset($_SESSION['user_id']) or $_SESSION['user_id']<1) {
+ include_once 'login_form.php';
+}  
+elseif (isset($_GET['update_paragraph'])) {
   include_once 'update_paragraph.php';
 } 
 elseif (isset($_GET['delete_paragraph'])) {

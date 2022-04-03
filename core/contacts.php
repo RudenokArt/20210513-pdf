@@ -1,9 +1,9 @@
-<?php 
+<?php session_start();
 
 header('Content-type: text/html; charset=utf-8');
 if (!isset($site_public_page)) {
-include_once '../core/database.php';
-include_once '../core/helpers.php';
+	include_once '../core/database.php';
+	include_once '../core/helpers.php';
 }
 Contacts::newLogo();
 Contacts::setMainSiteUrl();
@@ -23,11 +23,16 @@ Contacts::newStamp();
 Contacts::newSignature();
 Contacts::setContactsPDF();
 Contacts::getContactsPDF();
+Contacts::getSupplementStatus();
+Contacts::setSupplementStatus();
+Contacts::userLogin();
+Contacts::userLogout();
 /**
  * 
  */
 class Contacts {
 
+	public static $supplement_status = [];
 	public static $main_site_url;
 	public static $site_phone;
 	public static $admin_mail;
@@ -53,6 +58,50 @@ class Contacts {
 		'envelope',
 		'envelope-square',
 	];
+
+	public static function userLogout () {
+		if (isset($_POST['log_out'])) {
+			$_SESSION['user_id'] = 0;
+			echo '<meta http-equiv="refresh" content="0; url=../admin/index.php"/>';
+		}
+	}
+
+	public static function userLogin () {
+		if (isset($_POST['password'])) {
+			$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="password"');
+			while ($row = mysqli_fetch_assoc($sql)) {
+				$password = $row['value'];
+				if ($password == $_POST['password']) {
+					$_SESSION['user_id'] = 1;
+					Helpers::alertMessage('Авторизация прошла успешно.');
+					echo '<meta http-equiv="refresh" content="2; url=../admin/index.php"/>';
+				} else {
+					Helpers::alertMessage('Неверный пароль.');
+					echo '<meta http-equiv="refresh" content="2; url=../admin/index.php"/>';
+				}
+			}
+		}
+	}
+
+	public static function getSupplementStatus () {
+		$sql = self::sqlQuery('SELECT `name`, `value` 
+			FROM `camp_contacts` 
+			WHERE `name` LIKE "supplement__"');
+		while ($row = mysqli_fetch_assoc($sql)) {
+			self::$supplement_status[$row['name']] = $row['value'];
+		}
+	}
+
+	public static function setSupplementStatus () {
+		if (isset($_POST['supplement_status'])) {
+			self::sqlQuery('UPDATE `camp_contacts` 
+				SET `value`="'.$_POST['supplement_value'].'" 
+				WHERE `name`="'.$_POST['supplement_number'].'"');
+			Helpers::alertMessage('Запись таблицы базы данных обновлена.');
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page='.
+			$_POST['supplement_number'].'"/>';
+		}
+	}
 
 	public static function newLogo () {
 		if (isset($_FILES['header-logo'])) {
@@ -121,8 +170,8 @@ class Contacts {
 	public static function getTagTitle () {
 		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="tag-title"');
 		while ($row = mysqli_fetch_assoc($sql)) {
-      self::$tag_title = $row['value'];
-    }
+			self::$tag_title = $row['value'];
+		}
 	}
 
 	public static function updeteSocialIcon () {
@@ -156,8 +205,8 @@ class Contacts {
 	public static function getMainSiteUrl () {
 		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="main-site-url"');
 		while ($row = mysqli_fetch_assoc($sql)) {
-      self::$main_site_url = $row['value'];
-    }
+			self::$main_site_url = $row['value'];
+		}
 	}
 
 	public static function setSitePhone () {
@@ -172,14 +221,14 @@ class Contacts {
 	public static function getSitePhone () {
 		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="phone"');
 		while ($row = mysqli_fetch_assoc($sql)) {
-      self::$site_phone = $row['value'];
-    }
+			self::$site_phone = $row['value'];
+		}
 	}
 
 	public static function setContactsPDF () {
 		if (isset($_POST['contacts_pdf'])) {
 			self::sqlQuery('UPDATE `camp_contacts` 
-				SET `value`=`'.$_POST['contacts_pdf'].'` WHERE `name`="contacts_pdf"');
+				SET `value`="'.$_POST['contacts_pdf'].'" WHERE `name`="contacts_pdf"');
 			Helpers::alertMessage('Запись таблицы базы данных обновлена.');
 			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts_pdf"/>';
 		}
@@ -188,8 +237,8 @@ class Contacts {
 	public static function getContactsPDF () {
 		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="contacts_pdf"');
 		while ($row = mysqli_fetch_assoc($sql)) {
-      self::$contacts_pdf = $row['value'];
-    }
+			self::$contacts_pdf = $row['value'];
+		}
 	}
 
 	public static function setAdminMail () {
@@ -204,8 +253,8 @@ class Contacts {
 	public static function getAdminMail () {
 		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="email"');
 		while ($row = mysqli_fetch_assoc($sql)) {
-      self::$admin_mail = $row['value'];
-    }
+			self::$admin_mail = $row['value'];
+		}
 	}
 
 	public static function sqlQuery ($sql_query) {

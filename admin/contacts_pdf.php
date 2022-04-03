@@ -1,6 +1,11 @@
  <script src="https://cdn.ckeditor.com/4.18.0/basic/ckeditor.js"></script>
 <div class="container pt-5">
 	<div class="row">
+		<div class="col">
+			<p style="h5">Текст не должен содержать кавычки!</p>
+		</div>
+	</div>
+	<div class="row">
 		<div class="col-11">
 			<textarea name="editor1"></textarea>
 		</div>

@@ -25,7 +25,6 @@
   <title>Document</title>
 </head>
 <body>
-  <pre><?php print_r($_SESSION); ?></pre>
   <div class="top_menu wrapper"> 
     <div class="container">
       <ul class="nav nav-tabs bg-light">

@@ -6,8 +6,11 @@ include_once '../core/paragraph.php';
 include_once '../core/contacts.php';
 ?>
 <?php 
-include_once 'header.php';  
-if (!isset($_SESSION['user_id']) or $_SESSION['user_id']<1) {
+include_once 'header.php'; 
+if (isset($_GET['page']) and $_GET['page'] == 'password_recovery' ) {
+  include_once 'password_recovery.php';
+} 
+elseif (!isset($_SESSION['user_id']) or $_SESSION['user_id']<1) {
  include_once 'login_form.php';
 }  
 elseif (isset($_GET['update_paragraph'])) {

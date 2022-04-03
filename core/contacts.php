@@ -27,6 +27,7 @@ Contacts::getSupplementStatus();
 Contacts::setSupplementStatus();
 Contacts::userLogin();
 Contacts::userLogout();
+Contacts::newPassword();
 /**
  * 
  */
@@ -59,11 +60,35 @@ class Contacts {
 		'envelope-square',
 	];
 
+	public static function newPassword () {
+		if (isset($_POST['new-password'])) {
+			if (
+				$_POST['new-password'] == '' or 
+				$_POST['new-password'] != $_POST['confirm-password']
+			) {
+				Helpers::alertMessage('Пароли несовпадают.');
+			} else {
+				self::sqlQuery('UPDATE `camp_contacts` 
+					SET `value`="'.$_POST['new-password'].'" WHERE `name`="password"');
+				Helpers::alertMessage('Запись таблицы базы данных обновлена.');
+			}			
+			echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts"/>';
+		}
+	}
+
 	public static function userLogout () {
 		if (isset($_POST['log_out'])) {
 			$_SESSION['user_id'] = 0;
 			echo '<meta http-equiv="refresh" content="0; url=../admin/index.php"/>';
 		}
+	}
+
+	public static function getUserPassword () {
+		$sql = self::sqlQuery('SELECT `value` FROM `camp_contacts` WHERE `name`="password"');
+		while ($row = mysqli_fetch_assoc($sql)) {
+			$password = $row['value'];
+		}
+		return $password;
 	}
 
 	public static function userLogin () {

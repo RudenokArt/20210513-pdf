@@ -174,6 +174,29 @@
 	</div>
 </form>
 
+<form action="../core/contacts.php" method="post">
+	<div class="container pt-4 border-bottom">
+		<div class="row pb-4">
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="h5">Изменить пароль:</div>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<input type="text" placeholder="Новый пароль" 
+				class="form-control" name="new-password">
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<input type="text" placeholder="Новый пароль еще раз"
+				class="form-control" name="confirm-password">
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<button class="btn btn-outline-info">
+					<i class="fa fa-floppy-o" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+</form>
+
 <div class="container pt-5">
 	<div class="row">
 		<div class="col-lg-4 col-md-6 col-sm-12">

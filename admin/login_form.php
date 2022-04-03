@@ -1,13 +1,3 @@
-<style>
-	.login-page-wrapper {
-		position: absolute;
-		top: 0;
-		left: 0;
-		background: rgba(0, 0, 0, 0.2);
-		width: 100vw;
-		height: 100vh;
-	}
-</style>
 <div class="login-page-wrapper">
 	<div class="container pt-5">
 	<div class="row justify-content-center">
@@ -22,6 +12,10 @@
 							<i class="fa fa-sign-in" aria-hidden="true"></i>
 						</button>
 					</form>
+					<hr>
+					<a href="?page=password_recovery" class="btn btn-outline-warning">
+						Забыли пароль?
+					</a>
 				</div>
 			</div>
 		</div>

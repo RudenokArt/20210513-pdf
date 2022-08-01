@@ -11,7 +11,7 @@ $('.date').mask('99/99/9999');
 
 $( function() {
   $('.date').datepicker({
-    dateFormat: "dd-mm-yy",
+    dateFormat: "dd.mm.yy",
     changeYear: true,
   });
 } );

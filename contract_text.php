@@ -1,4 +1,5 @@
 <?php 
+$current_contract_number = getContractNumber();
 $foot='</body></html>';
 $head='
 <!DOCTYPE html>
@@ -54,14 +55,14 @@ $html='
 </head>
 <body>
 <div class="center_text">
-<b>ДОГОВОР <br>
+<b>ДОГОВОР № '.$current_contract_number['contract_date'].'-'.$current_contract_number['contract_number'].'<br>
 оказания услуг по организации семейного спортивного досуга</b>
 </div>
 <table class="date_talbe">
 <tr>
 <td>г. Краснодар</td>
 <td>'.
-date('d:m:Y').' г.
+date('d.m.Y').' г.
 </td>
 </tr>
 </table>
@@ -103,8 +104,9 @@ $html1=$head.'
 Приложение № '.$pdf_supplement_number.' <br>
 к Договору оказания услуг по организации <br>
 семейного спортивного досуга <br>
+<b>ДОГОВОР № '.$current_contract_number['contract_date'].'-'.$current_contract_number['contract_number'].'
 от '.
-date('d:m:Y')
+date('d.m.Y')
 .' г.<br>
 </div>
 <br><br><br><br><br><br><br>
@@ -116,12 +118,12 @@ date('d:m:Y')
   <img src="img/stamp.png" alt="печать" height="100">
   <img src="img/signature.png" alt="подпись"  height="100">
   <br>Исполнитель (печать, подпись)'.
-date('d:m:Y')
+date('d.m.Y')
 .' г.</p>
 <br><br><br>
 <p><b>С правилами ознакомлен:</b></p>
 <p>Заказчик _________________________________________(подпись, расшифровка)
-<br><br>« ____»  _____________ 2021 г.</p>
+<br><br>« ____»  _____________ '.date('d.m.Y').' г.</p>
 '.$foot;
 
 if (Contacts::$supplement_status['supplement_2']=='Y') {
@@ -132,8 +134,9 @@ $html2=$head.'
 Приложение № '.$pdf_supplement_number.' <br>
 к Договору оказания услуг по организации <br>
 семейного спортивного досуга <br>
+<b>ДОГОВОР № '.$current_contract_number['contract_date'].'-'.$current_contract_number['contract_number'].'
 от '.
-date('d:m:Y')
+date('d.m.Y')
 .' г.<br>
 </div>
 <br><br><br><br><br><br><br>
@@ -145,12 +148,12 @@ date('d:m:Y')
   <img src="img/stamp.png" alt="печать" height="100">
   <img src="img/signature.png" alt="подпись"  height="100">
   <br>Исполнитель (печать, подпись)'.
-  date('d:m:Y')
+  date('d.m.Y')
   .' г.</p>
 <br><br><br>
 <p><b>С содержанием Программы семейного спортивного досуга ознакомлен и согласен:</b></p>
 <p>Заказчик _________________________________________(подпись, расшифровка)
-<br><br>« ____»  _____________ 2021 г.</p>
+<br><br>« ____»  _____________ '.date('d.m.Y').' г.</p>
 '.$foot;
 
 if (Contacts::$supplement_status['supplement_3']=='Y') {
@@ -161,15 +164,16 @@ $html3=$head.'
 Приложение № '.$pdf_supplement_number.' <br>
 к Договору оказания услуг по организации <br>
 семейного спортивного досуга <br>
+<b>ДОГОВОР № '.$current_contract_number['contract_date'].'-'.$current_contract_number['contract_number'].'
 от '.
-date('d:m:Y')
+date('d.m.Y')
 .' г.<br>
 </div>
 <br><br><br><br><br><br><br>
 '.get_contract_text($data)[3].'
 <br><br><br>
 <p>Заказчик _________________________________________(подпись, расшифровка)
-<br><br>« ____»  _____________ 2021 г.</p>
+<br><br>« ____»  _____________ '.date('d.m.Y').' г.</p>
 
 
 <div class="center_text">

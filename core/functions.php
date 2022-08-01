@@ -3,11 +3,26 @@
 
 include_once 'database.php';
 
+function getContractNumber () {
+  $path = $_SERVER['DOCUMENT_ROOT'].'/core/database.json';
+  $database = json_decode(file_get_contents($path), true);
+  $arr_date = getdate();
+  $current_date = $arr_date['year'].'.'.$arr_date['mon'].'.'.$arr_date['mday'];
+  if ($database['contract_date'] != $current_date) {
+    $database['contract_date'] = $current_date;
+    $database['contract_number'] = 1;
+  } else {
+    $database['contract_number'] = $database['contract_number'] + 1;
+  }
+  file_put_contents($path, json_encode( $database));
+  return $database;
+}
+
 function dates_get_list () {
- $host='localhost';
- $log='o918458x_db';
- $pas='o918458x_pas';
- $db='o918458x_db';
+ // $host='localhost';
+ // $log='o918458x_db';
+ // $pas='o918458x_pas';
+ // $db='o918458x_db';
  $link = \Core\Database::db_connect();
  $sql=mysqli_query($link,'SELECT * FROM `camp_dates` ');
  $arr=[];

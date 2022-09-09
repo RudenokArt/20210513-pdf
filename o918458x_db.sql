@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Хост: localhost
--- Время создания: Авг 01 2022 г., 13:52
--- Версия сервера: 5.7.21-20-beget-5.7.21-20-1-log
--- Версия PHP: 5.6.40
+-- Хост: 127.0.0.1:3306
+-- Время создания: Сен 09 2022 г., 18:10
+-- Версия сервера: 8.0.19
+-- Версия PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -27,12 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Структура таблицы `camp_contacts`
 --
--- Создание: Апр 03 2022 г., 22:38
---
 
-DROP TABLE IF EXISTS `camp_contacts`;
 CREATE TABLE `camp_contacts` (
-  `id` int(8) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(250) NOT NULL,
   `value` text NOT NULL,
   `icon` varchar(250) NOT NULL
@@ -61,12 +57,9 @@ INSERT INTO `camp_contacts` (`id`, `name`, `value`, `icon`) VALUES
 --
 -- Структура таблицы `camp_dates`
 --
--- Создание: Окт 18 2021 г., 21:55
---
 
-DROP TABLE IF EXISTS `camp_dates`;
 CREATE TABLE `camp_dates` (
-  `id` int(8) NOT NULL,
+  `id` int NOT NULL,
   `date_from` varchar(256) NOT NULL,
   `date_to` varchar(256) NOT NULL,
   `season` varchar(256) NOT NULL,
@@ -105,14 +98,11 @@ INSERT INTO `camp_dates` (`id`, `date_from`, `date_to`, `season`, `camp`) VALUES
 --
 -- Структура таблицы `camp_paragraph`
 --
--- Создание: Окт 18 2021 г., 21:55
---
 
-DROP TABLE IF EXISTS `camp_paragraph`;
 CREATE TABLE `camp_paragraph` (
-  `id` int(8) NOT NULL,
+  `id` int NOT NULL,
   `paragraph_type` varchar(50) NOT NULL,
-  `paragraph_number` int(8) NOT NULL,
+  `paragraph_number` int NOT NULL,
   `paragraph_text` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -230,7 +220,8 @@ INSERT INTO `camp_paragraph` (`id`, `paragraph_type`, `paragraph_number`, `parag
 (116, 'supplement_3', 20, 'Я, [[fio]], предоставляя ИП Пладас Юлии Владимировне (ОГРНИП 321237500016519)  свои персональные данные, а так же персональные данные членов моей семьи, в том числе своих несовершеннолетних детей, настоящим добровольно даю свое согласие ИП Пладас Юлии Владимировне на обработку указанных персональных данных и раскрытие их в необходимом объеме третьим лицам с целью исполнения обязательств по Договору оказания услуг по организации спортивного семейного досуга от [[contract_date]] г.(Далее – “Договор”)'),
 (117, 'supplement_3', 30, 'В перечень предоставляемых мной персональных данных включается вся информация, переданная мной ИП Пладас Юлии Владимировне, включая но не ограничиваясь: фамилия, имя, отчество; дата рождения; место рождения; государство рождения; гражданство; пол; семейное положение; для несовершеннолетних: фамилия, имя, отчество, адрес и гражданство опекуна/законного представителя; домашний адрес; сведения о регистрации; номер телефона; адрес электронной почты; паспортные данные: серия, номер, кем выдан, дата выдачи; данные внутреннего паспорта; данные свидетельства о рождении; данные о документе на пребывание в РФ;'),
 (118, 'supplement_3', 40, 'Срок действия согласия - 1 (Один) год. Согласие может быть отозвано путем направления письменного уведомления на электронный адрес ИП Пладас Юлии Владимировны, указанный в Договоре.  Если согласие не было отозвано в указанный срок, срок действия согласия автоматически продлевается до момента его отзыва.\r\nВ случае отзыва указанного согласия, ИП Пладас Юлия Владимировна обязуется прекратить обработку не позднее 30 (тридцати) дней с даты получения такого требования.'),
-(119, 'contract', 0, '');
+(119, 'contract', 0, ''),
+(120, 'contract_number_date', 1, '2022.7.1');
 
 --
 -- Индексы сохранённых таблиц
@@ -262,19 +253,19 @@ ALTER TABLE `camp_paragraph`
 -- AUTO_INCREMENT для таблицы `camp_contacts`
 --
 ALTER TABLE `camp_contacts`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `camp_dates`
 --
 ALTER TABLE `camp_dates`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT для таблицы `camp_paragraph`
 --
 ALTER TABLE `camp_paragraph`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

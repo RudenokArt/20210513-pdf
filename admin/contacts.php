@@ -36,7 +36,8 @@
 				</button>			
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-12">
-				<img src="../img/fav_logo.ico" alt="log" height="100">
+				<img src="../img/fav_logo.ico?<?php echo time();?>" 
+				alt="log" height="100">
 			</div>
 		</div>
 	</div>

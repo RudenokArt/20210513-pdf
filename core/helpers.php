@@ -17,6 +17,14 @@ class Helpers {
 		</div>
 	<?php }
 
+public static function flashMessage ($message) { ?>
+  <div class="container">
+    <div class="alert alert-success text-center m-0" role="alert">
+        <?php echo $message ?>
+      </div>
+  </div>
+  <?php }
+
 
 }
 

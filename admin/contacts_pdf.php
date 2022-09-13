@@ -1,17 +1,62 @@
- <?php 
- if ($_POST['contract_title']) {
+<?php 
+if ($_POST['contract_title']) {
   Paragraph::update_contract_title();
 }
+if ($_POST['contract_city']) {
+  Paragraph::update_contract_city();
+}
+if ($_POST['supplement_title']) {
+  Paragraph::update_supplement_title();
+}
 ?>
+
 <form action="" method="post">
  <div class="container pt-5">
    <div class="row">
-    <div class="col-12 h5">Название договора:</div>
+    <div class="col-12 h5">Заголовок договора:</div>
   </div>
   <div class="row">
     <div class="col-11">
       <input value="<?php echo Paragraph::get_contract_title();?>" 
       name="contract_title" type="text" class="form-control">
+    </div>
+    <div class="col-1">
+     <button class="btn btn-outline-info">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i>
+    </button> 
+  </div>
+</div>
+</div>
+</form>
+
+<form action="" method="post">
+ <div class="container pt-5">
+   <div class="row">
+    <div class="col-12 h5">Место подписания договора:</div>
+  </div>
+  <div class="row">
+    <div class="col-11">
+      <input value="<?php echo Paragraph::get_contract_city();?>" 
+      name="contract_city" type="text" class="form-control">
+    </div>
+    <div class="col-1">
+     <button class="btn btn-outline-info">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i>
+    </button> 
+  </div>
+</div>
+</div>
+</form>
+
+<form action="" method="post">
+ <div class="container pt-5">
+   <div class="row">
+    <div class="col-12 h5">Заголовок приложений:</div>
+  </div>
+  <div class="row">
+    <div class="col-11">
+      <input value="<?php echo Paragraph::get_supplement_title();?>" 
+      name="supplement_title" type="text" class="form-control">
     </div>
     <div class="col-1">
      <button class="btn btn-outline-info">

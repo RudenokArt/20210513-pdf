@@ -54,7 +54,7 @@ if (isset($_POST['contract']) and $_POST['contract']=='true') {
   $pdf3 = $dompdf3->output(); 
   file_put_contents(__DIR__ . '/supplement_T.pdf', $pdf3);
 
-  include_once 'php_mail/index.php';
+  // include_once 'php_mail/index.php';
 }else { include_once 'layout.php'; }
 
 

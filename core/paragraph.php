@@ -6,6 +6,48 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/core/database.php';
 
 class Paragraph {
 
+  public static function get_supplement_title () {
+      $link = \Core\Database::db_connect();
+      $arr = [];
+      $sql_query = 'SELECT * FROM `camp_paragraph`  
+      WHERE `paragraph_type`="supplement_title"';
+      $sql = mysqli_query($link, $sql_query);
+      while ($row = mysqli_fetch_assoc($sql)) {
+        $arr = $row;
+      }
+      return $arr['paragraph_text'];
+    }
+
+    public static function update_supplement_title () {
+      $link = \Core\Database::db_connect();
+      $sql = 'UPDATE `camp_paragraph`  SET 
+      `paragraph_text`= "'.$_POST['supplement_title'].'"
+      WHERE `paragraph_type`="supplement_title"'; 
+      mysqli_query($link, $sql);
+      Helpers::flashMessage('Запись таблицы базы данных обновлена.');
+    }
+
+  public static function get_contract_city () {
+      $link = \Core\Database::db_connect();
+      $arr = [];
+      $sql_query = 'SELECT * FROM `camp_paragraph`  
+      WHERE `paragraph_type`="contract_city"';
+      $sql = mysqli_query($link, $sql_query);
+      while ($row = mysqli_fetch_assoc($sql)) {
+        $arr = $row;
+      }
+      return $arr['paragraph_text'];
+    }
+
+    public static function update_contract_city () {
+      $link = \Core\Database::db_connect();
+      $sql = 'UPDATE `camp_paragraph`  SET 
+      `paragraph_text`= "'.$_POST['contract_city'].'"
+      WHERE `paragraph_type`="contract_city"'; 
+      mysqli_query($link, $sql);
+      Helpers::flashMessage('Запись таблицы базы данных обновлена.');
+    }
+
   public static function add_new_paragraph () {
     $link = \Core\Database::db_connect();
     $sql = 'INSERT INTO `camp_paragraph`
@@ -52,7 +94,6 @@ class Paragraph {
       WHERE `paragraph_type`="contract_title"'; 
       mysqli_query($link, $sql);
       Helpers::flashMessage('Запись таблицы базы данных обновлена.');
-      // echo '<meta http-equiv="refresh" content="2; url=../admin/index.php?page=contacts_pdf';
     }
 
     public static function get_paragraph ($id) {

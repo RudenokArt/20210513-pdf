@@ -124,6 +124,19 @@ function get_contract_text($data) {
   return [$contract_text, $supplement_1, $supplement_2, $supplement_3];
 }
 
+function get_contract_title () {
+  include_once 'core/paragraph.php';
+  return Paragraph::get_contract_title();
+}
+function get_contract_city () {
+  include_once 'core/paragraph.php';
+  return Paragraph::get_contract_city();
+}
+function get_supplement_title () {
+  include_once 'core/paragraph.php';
+  return Paragraph::get_supplement_title();
+}
+
 function replace_contract_text($data, &$contract_text) {
 
   $contract_text=str_replace('[[contract_date]]', date('d:m:Y'), $contract_text);

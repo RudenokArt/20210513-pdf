@@ -1,4 +1,5 @@
 <?php 
+$supplement_title = get_supplement_title();
 $current_contract_number = getContractNumber();
 $foot='</body></html>';
 $head='
@@ -56,11 +57,11 @@ $html='
 <body>
 <div class="center_text">
 <b>ДОГОВОР № '.$current_contract_number['contract_date'].'-'.$current_contract_number['contract_number'].'<br>
-оказания услуг по организации семейного спортивного досуга</b>
+'.get_contract_title().'</b>
 </div>
 <table class="date_talbe">
 <tr>
-<td>г. Краснодар</td>
+<td>'.get_contract_city().'</td>
 <td>'.
 date('d.m.Y').' г.
 </td>
@@ -102,8 +103,7 @@ if (Contacts::$supplement_status['supplement_1']=='Y') {
 $html1=$head.'
 <div class="right_top">
 Приложение № '.$pdf_supplement_number.' <br>
-к Договору оказания услуг по организации <br>
-семейного спортивного досуга <br>
+'.$supplement_title.' <br>
 <b>ДОГОВОР № '.$current_contract_number['contract_date'].'-'.$current_contract_number['contract_number'].'
 от '.
 date('d.m.Y')
@@ -132,8 +132,7 @@ if (Contacts::$supplement_status['supplement_2']=='Y') {
 $html2=$head.'
 <div class="right_top">
 Приложение № '.$pdf_supplement_number.' <br>
-к Договору оказания услуг по организации <br>
-семейного спортивного досуга <br>
+'.$supplement_title.' <br>
 <b>ДОГОВОР № '.$current_contract_number['contract_date'].'-'.$current_contract_number['contract_number'].'
 от '.
 date('d.m.Y')
@@ -162,8 +161,7 @@ if (Contacts::$supplement_status['supplement_3']=='Y') {
 $html3=$head.'
 <div class="right_top">
 Приложение № '.$pdf_supplement_number.' <br>
-к Договору оказания услуг по организации <br>
-семейного спортивного досуга <br>
+'.$supplement_title.' <br>
 <b>ДОГОВОР № '.$current_contract_number['contract_date'].'-'.$current_contract_number['contract_number'].'
 от '.
 date('d.m.Y')

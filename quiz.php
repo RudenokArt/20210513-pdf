@@ -164,7 +164,8 @@
     </div>
   </div>
 
-  <div class="quiz_step">
+  <?php if ($_SERVER['HTTP_HOST'] != 'c931267p.beget.tech'): ?>
+    <div class="quiz_step">
     <?php for ($i=1; $i <= 3; $i++) { ?>
       <div class="quiz_step-item">
         <div class="quiz_step-item_title">
@@ -213,6 +214,9 @@
       </div>
     <?php  }  ?>
   </div>
+  <?php endif ?>
+
+  
 
 </div>
 </form>

@@ -6,9 +6,9 @@ class Database {
 
   public static function db_connect () {
     $host='localhost';
-    $log='root';
-    $pas='root';
-    $db='pdf-pladas';
+    $log='c931267p_db';
+    $pas='c931267p_pas';
+    $db='c931267p_db';
     $link=mysqli_connect($host,$log,$pas,$db);
     return $link;
   }

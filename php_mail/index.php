@@ -13,8 +13,8 @@ include_once('km_smtp_class.php');
 $SenderConfig = array(
  "SMTP_server"   =>  "smtp.yandex.ru",
  "SMTP_port"     =>  "465",
- "SMTP_email"    =>  "postimap@yandex.ru",
- "SMTP_pass"     =>  "imappost",
+ "SMTP_email"    =>  "tour.atmosphere@yandex.ru",
+ "SMTP_pass"     =>  "Planeta2022@",
  "SMTP_type"     =>  "ssl"
 );
 

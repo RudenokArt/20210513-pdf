@@ -12,10 +12,10 @@ include_once('km_smtp_class.php');
 // Конфигурационный массив
 $SenderConfig = array(
   "SMTP_server"   =>  "smtp.yandex.ru",
-  "SMTP_port"     =>  "465",
-  "SMTP_email"    =>  "Yuliapladas@yandex.ru",
-  "SMTP_pass"     =>  "33067477Las94",
-  "SMTP_type"     =>  "ssl"
+ "SMTP_port"     =>  "465",
+ "SMTP_email"    =>  "tour.atmosphere@yandex.ru",
+ "SMTP_pass"     =>  "Planeta2022@",
+ "SMTP_type"     =>  "ssl"
 );
 
 // Email получателя/Получателей

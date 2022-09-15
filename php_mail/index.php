@@ -65,11 +65,12 @@ if($mail->isLogin) {// Прикрепить файл
    $mail->clearCC();
    $mail->clearBCC();
    $mail->clearAttachments();
+   Helpers::alertMessage('<p>Сообщение отправлено Администратору.</p>
+ <p>Договор с приложениями отправлен на почту указанную в заявке.</p>');
 }
 else {
  echo "Возникла ошибка во время подключения к SMTP-серверу<br />";
 }
-Helpers::alertMessage('<p>Сообщение отправлено Администратору.</p>
- <p>Договор с приложениями отправлен на почту указанную в заявке.</p>');
-echo '<meta http-equiv="refresh" content="5; url=https://семейныйлагерь.рф/" />'
+
+echo '<meta http-equiv="refresh" content="5; url='.Contacts::$main_site_url.'" />'
 ?>
